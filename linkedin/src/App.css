@@ -6,3 +6,17 @@
   width: 100px;
   height: 100px;
 }
+
+/* PROFILE - RIGHT SIDE */
+#rightSideUserImg {
+  width: 2rem;
+  object-fit: cover;
+}
+
+/* UTILITY CALSSES: */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
