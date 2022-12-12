@@ -83,6 +83,31 @@
   /* visibility: hidden; */
 }
 
+#topNavSerachIcon {
+  position: absolute;
+  transform: translateY(2.5px);
+  color: #666666;
+}
+
+#topNavDeleteInput {
+  position: absolute;
+  transform: translateY(2.5px);
+  transform: translateX(200px);
+  color: #666666;
+  cursor: pointer;
+  transition: scale() 350ms ease-in;
+}
+#topNavDeleteInput:hover {
+  color: #191919;
+}
+/* #topNavDeleteInput:hover {
+  transform: translateY(2.5px);
+  transform: translateX(200px);
+  transform: scale(1.1);
+} */
+#topNavFormControl {
+  padding-left: 1.75rem;
+}
 .formListItems {
   list-style: none;
   margin-bottom: 0.5rem;

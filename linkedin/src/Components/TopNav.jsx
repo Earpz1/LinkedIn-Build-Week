@@ -11,19 +11,30 @@ import TopNavProfile from "./TopNavProfile";
 import TopNavWork from "./TopNavWork";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { FiDelete } from "react-icons/fi";
 
 import FormSearchUser from "./FormSearchUser";
 
 const TopNav = () => {
-  // const [query, setQuery] = useState('')
+  const [query, setQuery] = useState("");
+  const [isQuerySet, setIsQuerySet] = useState(false);
+  const [clearInput, setClearInput] = useState(query);
 
-  // const handleQuery = (e) => {
-  //   setQuery(e.target.value)
-  // }
+  console.log("the query is: ", query);
+  console.log("the input is: ", clearInput);
+  const handleQuery = (e) => {
+    setQuery(e.target.value);
+    setIsQuerySet(true);
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  // }
+  const handleClearInput = () => {
+    // setClearInput("");
+    setQuery("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   const usersList = useSelector((state) => state.user.users);
   const users = usersList[0];
@@ -39,27 +50,32 @@ const TopNav = () => {
         {/* <div className="d-flex justify-content-center align-items-center"> */}
         {/* <GoSearch /> */}
         <div id="topNavFormDiv">
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          </Form>
+          <FiDelete id="topNavDeleteInput" onClick={handleClearInput} />
+          <GoSearch id="topNavSerachIcon" className="ml-2" />
 
-          <ul id="topNavFormList">
-            {/* {areUsersLoaded &&
-              users.slice(0, 6).map((user) => (
-                <li className="formListItems" key={user._id}>
-                  <FormSearchUser user={user} />
-                </li>
-              ))} */}
-            {areUsersLoaded &&
-              users
-                .filter((user) => user.name.toLowerCase().startsWith("ra"))
-                .slice(0, 6)
-                .map((user) => (
-                  <li className="formListItems line-clamp-one" key={user._id}>
-                    <FormSearchUser user={user} />
-                  </li>
-                ))}
-          </ul>
+          <Form onSubmit={handleSubmit}>
+            <FormControl
+              value={query}
+              onChange={handleQuery}
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+              id="topNavFormControl"
+            />
+          </Form>
+          {isQuerySet && (
+            <ul id="topNavFormList">
+              {areUsersLoaded &&
+                users
+                  .filter((user) => user.name.toLowerCase().startsWith(`${query}`))
+                  .slice(0, 6)
+                  .map((user) => (
+                    <li className="formListItems line-clamp-one" key={user._id}>
+                      <FormSearchUser user={user} />
+                    </li>
+                  ))}
+            </ul>
+          )}
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center" id="topNavRight">
