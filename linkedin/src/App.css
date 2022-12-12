@@ -1,8 +1,15 @@
 .App {
   text-align: center;
 }
-
-/*Navbar stuff*/
+#root {
+  background-color: #f3f2ef;
+}
+#root > nav {
+  background-color: white;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+/*Navbar stuff
 #root > nav {
   display: flex;
   justify-content: space-between;
@@ -22,12 +29,55 @@
 }
 .mainNavLinks {
   display: flex;
+}*/
+
+/*userInfo*/
+
+#root > div > div {
+  gap: 25px;
 }
 
-.profile-image {
-  width: 100px;
-  height: 100px;
+#profileContainer {
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  width: 50rem;
+  padding-bottom: 1em;
+  box-shadow: #c6c5c3 0px 0px 5px;
 }
+#upperCardBackgroundImage {
+  background-image: url(https://farm5.staticflickr.com/4902/44891418625_2056c2bf9f_o.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+#userProfilePic {
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  border: solid white 3pt;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#lowerProfileCard {
+  background-color: white;
+  padding: 4em 1em 0em 1em;
+}
+
+/*PROFILE RIGHT*/
+#profileRight {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+.lineBreaks {
+  color: #c6c5c3;
+}
+
 /* TOP NAV */
 #topNavRight .top-nav-links {
   text-decoration: none;
@@ -60,8 +110,33 @@
 
 .navbar-icons:hover,
 .top-nav-work-icon:hover,
-.top-nav-profile-icon:hover {
+.top-nav-profile-icon:hover,
+.topNavMeBox:hover,
+.topNavWorkBox:hover {
   color: #191919;
+}
+
+.topNavMeBox,
+.topNavWorkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.5em;
+  color: #666666;
+}
+
+#generalSearchArea {
+  background-color: #eef3f8;
+  margin-left: 0.4em;
+  border-radius: 5px;
+}
+
+.searchInput input {
+  border: none;
+  background-color: transparent;
+}
+#basic-nav-dropdown {
+  padding: 0;
 }
 
 /* PROFILE - RIGHT SIDE */

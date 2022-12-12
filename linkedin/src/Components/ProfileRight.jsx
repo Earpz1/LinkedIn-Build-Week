@@ -10,11 +10,14 @@ const ProfileRight = () => {
   console.log("the users from the second array are: ", usersSecond);
   console.log("are the users loaded? :", areUsersLoaded);
   return (
-    <div>
+    <div id="profileRight">
       <p>
         <strong>Add to your feed now</strong>
       </p>
-      <div>{areUsersLoaded && usersSecond.slice(0, 6).map((user) => <RightSideUser user={user} />)}</div>
+      <div>
+        {areUsersLoaded &&
+          usersSecond.slice(0, 6).map((user) => <RightSideUser user={user} />)}
+      </div>
       <p>
         View all recommandations <AiOutlineArrowRight />
       </p>
