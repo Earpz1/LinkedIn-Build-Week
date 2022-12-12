@@ -10,10 +10,10 @@ const RightSideUser = ({ user }) => {
           {user.name} {user.surname}
         </span>
       </div>
-      <p className="pl-5">
+      <p className="pl-5 mb-2">
         <small className="line-clamp">{user.bio}</small>
       </p>
-      <Button variant="outline-dark" id="followBtn" className="ml-5">
+      <Button variant="outline-dark" id="followBtn" className="ml-5 mb-4">
         <AiOutlinePlus className="mr-1" />
         Follow
       </Button>
