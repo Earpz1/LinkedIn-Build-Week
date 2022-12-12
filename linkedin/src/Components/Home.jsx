@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchUsers } from '../redux/actions'
+import { fetchUsers, fetchProfile } from '../redux/actions'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -8,6 +8,7 @@ const Home = () => {
   const usersLoaded = useSelector((state) => state.user.usersLoaded)
 
   useEffect(() => {
+    dispatch(fetchProfile())
     dispatch(fetchUsers())
   }, [])
 

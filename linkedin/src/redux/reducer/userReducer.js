@@ -1,7 +1,8 @@
-import { USER_SELECTED, USERS_LOADED } from '../actions'
+import { USER_SELECTED, USERS_LOADED, CURRENT_USER } from '../actions'
 
 const initialState = {
   users: [],
+  currentUser: null,
   usersLoaded: false,
 }
 
@@ -10,13 +11,19 @@ const userReducer = (state = initialState, action) => {
     case USER_SELECTED:
       return {
         ...state,
-        users: [...state.users, action.payload],
+        users: [action.payload],
       }
 
     case USERS_LOADED:
       return {
         ...state,
         usersLoaded: action.payload,
+      }
+
+    case CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.payload,
       }
 
     default:
