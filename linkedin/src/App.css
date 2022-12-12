@@ -64,6 +64,30 @@
   color: #191919;
 }
 
+/* TOP NAV: FORM */
+#topNavFormDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+#topNavFormList {
+  position: absolute;
+  transform: translateY(150px);
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  width: 96%;
+  padding-left: 0.75rem;
+  /* visibility: hidden; */
+}
+
+.formListItems {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
 /* PROFILE - RIGHT SIDE */
 #rightSideUserImg {
   width: 2rem;
@@ -71,6 +95,14 @@
 }
 
 /* UTILITY CALSSES: */
+
+.line-clamp-one {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .line-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 2;

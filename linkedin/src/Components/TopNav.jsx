@@ -1,16 +1,34 @@
-import { Navbar, Nav, Form, FormControl } from 'react-bootstrap'
-import { SiLinkedin } from 'react-icons/si'
-import { GoSearch } from 'react-icons/go'
-import { HiHome } from 'react-icons/hi'
-import { MdPeopleAlt } from 'react-icons/md'
-import { BsBriefcaseFill } from 'react-icons/bs'
-import { AiFillMessage } from 'react-icons/ai'
-import { FaBell } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import TopNavProfile from './TopNavProfile'
-import TopNavWork from './TopNavWork'
+import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import { SiLinkedin } from "react-icons/si";
+import { GoSearch } from "react-icons/go";
+import { HiHome } from "react-icons/hi";
+import { MdPeopleAlt } from "react-icons/md";
+import { BsBriefcaseFill } from "react-icons/bs";
+import { AiFillMessage } from "react-icons/ai";
+import { FaBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import TopNavProfile from "./TopNavProfile";
+import TopNavWork from "./TopNavWork";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
+import FormSearchUser from "./FormSearchUser";
 
 const TopNav = () => {
+  // const [query, setQuery] = useState('')
+
+  // const handleQuery = (e) => {
+  //   setQuery(e.target.value)
+  // }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  // }
+
+  const usersList = useSelector((state) => state.user.users);
+  const users = usersList[0];
+  const areUsersLoaded = useSelector((state) => state.user.usersLoaded);
+
   return (
     <Navbar expand="lg p-0 justify-content-center mt-2">
       <div className="d-flex justify-content-center align-items-center">
@@ -18,17 +36,33 @@ const TopNav = () => {
           <SiLinkedin size={42} />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <div className="d-flex justify-content-center align-items-center">
-          <GoSearch />
+        {/* <div className="d-flex justify-content-center align-items-center"> */}
+        {/* <GoSearch /> */}
+        <div id="topNavFormDiv">
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           </Form>
+
+          <ul id="topNavFormList">
+            {/* {areUsersLoaded &&
+              users.slice(0, 6).map((user) => (
+                <li className="formListItems" key={user._id}>
+                  <FormSearchUser user={user} />
+                </li>
+              ))} */}
+            {areUsersLoaded &&
+              users
+                .filter((user) => user.name.toLowerCase().startsWith("ra"))
+                .slice(0, 6)
+                .map((user) => (
+                  <li className="formListItems line-clamp-one" key={user._id}>
+                    <FormSearchUser user={user} />
+                  </li>
+                ))}
+          </ul>
         </div>
       </div>
-      <div
-        className="d-flex justify-content-center align-items-center"
-        id="topNavRight"
-      >
+      <div className="d-flex justify-content-center align-items-center" id="topNavRight">
         <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
           <Nav className="mr-auto">
             <div className="d-flex justify-content-center align-items-center">
@@ -71,7 +105,7 @@ const TopNav = () => {
         </Navbar.Collapse>
       </div>
     </Navbar>
-  )
-}
+  );
+};
 
-export default TopNav
+export default TopNav;
