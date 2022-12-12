@@ -49,7 +49,14 @@ const TopNav = () => {
               <Link>
                 <FaBell />
               </Link>
-              <NavDropdown title={<HiUserCircle />} id="basic-nav-dropdown">
+              <NavDropdown
+                title={
+                  <Link to={"/profile"}>
+                    <HiUserCircle />
+                  </Link>
+                }
+                id="basic-nav-dropdown"
+              >
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Another action
