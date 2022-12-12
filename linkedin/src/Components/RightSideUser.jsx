@@ -1,4 +1,5 @@
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const RightSideUser = ({ user }) => {
   return (
@@ -12,6 +13,10 @@ const RightSideUser = ({ user }) => {
       <p className="pl-5">
         <small className="line-clamp">{user.bio}</small>
       </p>
+      <Button variant="outline-dark" id="followBtn" className="ml-5">
+        <AiOutlinePlus className="mr-1" />
+        Follow
+      </Button>
     </div>
   );
 };
