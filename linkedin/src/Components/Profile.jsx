@@ -1,7 +1,9 @@
+import ProfileHeader from './ProfileHeader'
+
 const Profile = () => {
   return (
     <>
-      <h1>Profile Page</h1>
+      <ProfileHeader />
     </>
   )
 }
