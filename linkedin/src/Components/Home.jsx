@@ -1,16 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { fetchUsers, fetchProfile } from '../redux/actions'
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchUsers, fetchProfile } from "../redux/actions";
+import HomeRight from "./HomeRight";
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const usersData = useSelector((state) => state.user.users)
-  const usersLoaded = useSelector((state) => state.user.usersLoaded)
+  const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.user.users);
+  const usersLoaded = useSelector((state) => state.user.usersLoaded);
 
   useEffect(() => {
-    dispatch(fetchProfile())
-    dispatch(fetchUsers())
-  }, [])
+    dispatch(fetchProfile());
+    dispatch(fetchUsers());
+  }, []);
 
   return (
     <>
@@ -24,7 +25,7 @@ const Home = () => {
           ))}
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
