@@ -6,6 +6,41 @@
   width: 100px;
   height: 100px;
 }
+/* TOP NAV */
+#topNavRight .top-nav-links {
+  text-decoration: none;
+}
+.top-nav-text-icons {
+  color: #666666;
+}
+
+.top-nav-text-icons:hover {
+  color: #191919;
+}
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.navbar-links:hover {
+  color: #191919;
+}
+
+.navbar-icons,
+.top-nav-work-icon,
+.top-nav-profile-icon {
+  font-size: 1.5rem;
+}
+
+.navbar-icons:hover,
+.top-nav-work-icon:hover,
+.top-nav-profile-icon:hover {
+  color: #191919;
+}
 
 /* PROFILE - RIGHT SIDE */
 #rightSideUserImg {
