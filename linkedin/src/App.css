@@ -2,6 +2,28 @@
   text-align: center;
 }
 
+/*Navbar stuff*/
+#root > nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#root > nav > div.d-flex > a {
+  display: flex;
+  align-items: center;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+.mainNavLinksBox {
+  display: flex;
+  width: 900px;
+}
+.mainNavLinks {
+  display: flex;
+}
+
 .profile-image {
   width: 100px;
   height: 100px;

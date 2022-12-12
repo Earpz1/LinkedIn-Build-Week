@@ -19,22 +19,22 @@ const TopNav = () => {
   return (
     <Navbar bg="light" expand="lg">
       <div className="d-flex">
-        <Link href="#home">
+        <Link to="/">
           <SiLinkedin size={42} />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <div>
+        <div className="searchBar">
           <GoSearch />
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           </Form>
         </div>
       </div>
-      <div>
+      <div className="mainNavLinksBox">
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <div>
-              <Link href="#home">
+            <div className="mainNavLinks">
+              <Link to="/">
                 <HiHome />
               </Link>
               <Link href="#link">
@@ -49,7 +49,14 @@ const TopNav = () => {
               <Link>
                 <FaBell />
               </Link>
-              <NavDropdown title={<HiUserCircle />} id="basic-nav-dropdown">
+              <NavDropdown
+                title={
+                  <Link to="/profile">
+                    <HiUserCircle />
+                  </Link>
+                }
+                id="basic-nav-dropdown one"
+              >
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Another action
@@ -66,7 +73,7 @@ const TopNav = () => {
             <div>
               <NavDropdown
                 title={<BsFillGrid3X3GapFill />}
-                id="basic-nav-dropdown"
+                id="basic-nav-dropdown two"
               >
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
