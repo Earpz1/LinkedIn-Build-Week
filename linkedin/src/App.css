@@ -3,12 +3,22 @@
 }
 #root {
   background-color: #f3f2ef;
+  position: relative;
+  padding-top: 4em;
 }
 #root > nav {
   background-color: white;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
+  height: 60px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+  border-bottom: #c6c5c3 solid 1pt;
 }
+
 /*Navbar stuff
 #root > nav {
   display: flex;
@@ -128,17 +138,69 @@
 #generalSearchArea {
   background-color: #eef3f8;
   margin-left: 0.4em;
+  padding: 6px 4px;
   border-radius: 5px;
+  transition: border, transform 1s ease-in-out;
 }
 
 .searchInput input {
   border: none;
   background-color: transparent;
+  outline: none;
 }
+
+.searchSetSelected {
+  border: #191919 solid 2pt;
+}
+
 #basic-nav-dropdown {
   padding: 0;
   font-size: 0.85rem;
   margin-top: 5px;
+}
+
+#basic-navbar-nav > div > div.d-flex.justify-content-center.align-items-center {
+  height: 60px;
+  padding-right: 1em;
+  border-right: #c6c5c3 solid 1pt;
+}
+
+/*TOP NAV: user drop-down modal*/
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-center.align-items-center
+  > div
+  > div.nav-item.show.dropdown
+  > div {
+  width: 250px;
+  left: -195px;
+  top: 40px;
+  border-radius: 10px 0px 10px 10px;
+}
+
+/*TOP NAV: user modal button*/
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-center.align-items-center
+  > div
+  > div.nav-item.show.dropdown
+  > div
+  > a:nth-child(1)
+  > div
+  > button {
+  padding: 0;
+  background-color: transparent;
+  color: blue;
+}
+
+#NavBottom {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 60px;
+  transform: translateY(-60px);
+  z-index: 5;
+  box-shadow: black 1px 0px 5px;
 }
 
 /* PROFILE - RIGHT SIDE */
@@ -180,17 +242,18 @@ NEW SYLING FOR TopNav - search & deleteButton
 }
 #topNavFormList {
   position: absolute;
-  transform: translateY(150px);
+  top: 38px;
+  left: 42px;
   border: 1px solid lightgrey;
-  border-radius: 6px;
+  border-radius: 10px;
   width: 96%;
-  padding-left: 0.75rem;
+  padding: 0;
   /* visibility: hidden; */
-  height: 220px;
-  overflow-y: scroll;
+  overflow: hidden;
   z-index: 2;
-  background-color: #f3f2ef;
+  background-color: white;
 }
+
 #topNavSerachIcon {
   position: absolute;
   transform: translateY(2.5px);
