@@ -1,14 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { fetchUsers, fetchProfile } from '../redux/actions'
+import {
+  fetchUsers,
+  fetchProfile,
+  currentUser,
+  fetchExperiences,
+} from '../redux/actions'
 
 const Home = () => {
   const dispatch = useDispatch()
   const usersData = useSelector((state) => state.user.users)
+  const currentUserData = useSelector((state) => state.user.currentUser)
   const usersLoaded = useSelector((state) => state.user.usersLoaded)
 
   useEffect(() => {
     dispatch(fetchProfile())
+    dispatch(fetchExperiences(currentUserData._id))
     dispatch(fetchUsers())
   }, [])
 
