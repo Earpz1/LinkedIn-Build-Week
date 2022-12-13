@@ -1,6 +1,6 @@
-import { Col, Container, Row } from "react-bootstrap";
-import ProfileHeader from "./ProfileHeader";
-import ProfileRight from "./ProfileRight";
+import { Col, Container, Row } from 'react-bootstrap'
+import ProfileHeader from './ProfileHeader'
+import ProfileRight from './ProfileRight'
 
 const Profile = () => {
   return (
@@ -16,7 +16,7 @@ const Profile = () => {
         </div>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

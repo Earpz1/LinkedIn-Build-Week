@@ -140,4 +140,4 @@ function EditExperienceModal() {
   )
 }
 
-export default EditModal
+export default EditExperienceModal
