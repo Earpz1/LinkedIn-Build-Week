@@ -4,17 +4,15 @@ import {
   configureStore,
   combineReducers,
 } from '@reduxjs/toolkit'
-// import favouriteReducer from '../reducer/favouriteReducer'
-// import fetchingReducer from '../reducer/fetchingReducer'
 import userReducer from '../reducer/userReducer'
+import experienceReducer from '../reducer/experienceReducer'
 import localStorage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import { encryptTransform } from 'redux-persist-transform-encrypt'
 
 const mainReducer = combineReducers({
-  //   favourite: favouriteReducer,
   user: userReducer,
-  //   fetchData: fetchingReducer,
+  experience: experienceReducer,
 })
 
 const persistConfig = {
