@@ -16,7 +16,11 @@ const ProfileRight = () => {
       </p>
       <div>
         {areUsersLoaded &&
-          usersSecond.slice(0, 6).map((user) => <RightSideUser user={user} />)}
+          usersSecond.slice(0, 6).map((user) => (
+            <div key={user._id}>
+              <RightSideUser user={user} />
+            </div>
+          ))}
       </div>
       <p>
         View all recommandations <AiOutlineArrowRight />
