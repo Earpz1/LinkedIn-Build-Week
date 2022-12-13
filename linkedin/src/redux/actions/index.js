@@ -96,11 +96,10 @@ export const editUser = (user) => {
       let response = await fetch(fetchURL, options)
       console.log(response)
       if (response.ok) {
-        dispatch(usersLoaded())
-        console.log('Fetch Successful')
+        console.log('Edit was successful')
         let usersData = await response.json()
         console.log(usersData)
-        dispatch(userSelectedAction(usersData))
+        dispatch(fetchProfile())
       }
     } catch (error) {
       console.log(error)

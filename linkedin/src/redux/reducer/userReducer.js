@@ -1,9 +1,15 @@
-import { USER_SELECTED, USERS_LOADED, CURRENT_USER } from '../actions'
+import {
+  USER_SELECTED,
+  USERS_LOADED,
+  CURRENT_USER,
+  // EDITED_CURRENT_USER,
+} from '../actions'
 
 const initialState = {
   users: [],
   currentUser: null,
   usersLoaded: false,
+  editedUser: null,
 }
 
 const userReducer = (state = initialState, action) => {
