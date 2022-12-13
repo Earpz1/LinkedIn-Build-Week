@@ -1,10 +1,10 @@
-import { SELECTED_EXPERIENCE } from '../actions'
+import { SELECTED_EXPERIENCE } from "../actions";
 
 const initialState = {
   experience: {
     content: [],
   },
-}
+};
 
 const experienceReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,13 +13,13 @@ const experienceReducer = (state = initialState, action) => {
         ...state,
         experience: {
           ...state.experience,
-          content: [...state.experience.content, action.payload],
+          content: [action.payload],
         },
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default experienceReducer
+export default experienceReducer;

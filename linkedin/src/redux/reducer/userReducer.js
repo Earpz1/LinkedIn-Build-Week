@@ -4,6 +4,8 @@ import {
   CURRENT_USER,
   // EDITED_CURRENT_USER,
   GET_CONTACT,
+  GET_CONTACT_EXPERIENCES,
+  USER_NOW,
 } from "../actions";
 
 const initialState = {
@@ -12,6 +14,8 @@ const initialState = {
   usersLoaded: false,
   editedUser: null,
   contact: null,
+  contactExperiences: [],
+  userNow: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -20,6 +24,18 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         contact: action.payload,
+      };
+
+    case USER_NOW:
+      return {
+        ...state,
+        userNow: action.payload,
+      };
+
+    case GET_CONTACT_EXPERIENCES:
+      return {
+        ...state,
+        contactExperiences: [action.payload],
       };
     case USER_SELECTED:
       return {
