@@ -1,49 +1,55 @@
-import { Navbar, Nav, Form, FormControl, Container } from "react-bootstrap";
-import { SiLinkedin } from "react-icons/si";
-import { GoSearch } from "react-icons/go";
-import { HiHome } from "react-icons/hi";
-import { MdPeopleAlt } from "react-icons/md";
-import { BsBriefcaseFill } from "react-icons/bs";
-import { AiFillMessage } from "react-icons/ai";
-import { FaBell } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import TopNavProfile from "./TopNavProfile";
-import TopNavWork from "./TopNavWork";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { FiDelete } from "react-icons/fi";
-import FormSearchUser from "./FormSearchUser";
+import { Navbar, Nav, Form, FormControl, Container } from 'react-bootstrap'
+import { SiLinkedin } from 'react-icons/si'
+import { GoSearch } from 'react-icons/go'
+import { HiHome } from 'react-icons/hi'
+import { MdPeopleAlt } from 'react-icons/md'
+import { BsBriefcaseFill } from 'react-icons/bs'
+import { AiFillMessage } from 'react-icons/ai'
+import { FaBell } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import TopNavProfile from './TopNavProfile'
+import TopNavWork from './TopNavWork'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { FiDelete } from 'react-icons/fi'
+import FormSearchUser from './FormSearchUser'
 
 const TopNav = () => {
-  const [query, setQuery] = useState("");
-  const [isQuerySet, setIsQuerySet] = useState(false);
-  const [clearInput, setClearInput] = useState(query);
-  console.log("the query is: ", query);
-  console.log("the input is: ", clearInput);
+  const [query, setQuery] = useState('')
+  const [isQuerySet, setIsQuerySet] = useState(false)
+  const [clearInput, setClearInput] = useState(query)
+  console.log('the query is: ', query)
+  console.log('the input is: ', clearInput)
   const handleQuery = (e) => {
-    setQuery(e.target.value);
-    setIsQuerySet(true);
-  };
+    setQuery(e.target.value)
+    setIsQuerySet(true)
+  }
   const handleClearInput = () => {
     // setClearInput("");
-    setQuery("");
-    setIsQuerySet(false);
-  };
+    setQuery('')
+    setIsQuerySet(false)
+  }
   const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  const usersList = useSelector((state) => state.user.users);
-  const users = usersList[0];
-  const areUsersLoaded = useSelector((state) => state.user.usersLoaded);
+    e.preventDefault()
+  }
+  const usersList = useSelector((state) => state.user.users)
+  const users = usersList[0]
+  const areUsersLoaded = useSelector((state) => state.user.usersLoaded)
   return (
     <Navbar expand="lg justify-content-center">
       <Container>
-        <div className="d-flex justify-content-center align-items-center" id="parentDivForm">
+        <div
+          className="d-flex justify-content-center align-items-center"
+          id="parentDivForm"
+        >
           <Link to="/">
             <SiLinkedin size={38} />
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <div className="d-flex justify-content-center align-items-center" id="generalSearchArea">
+          <div
+            className="d-flex justify-content-center align-items-center"
+            id="generalSearchArea"
+          >
             <div id="topNavDeleteInput">
               <FiDelete onClick={handleClearInput} />
             </div>
@@ -51,16 +57,24 @@ const TopNav = () => {
               <GoSearch />
             </div>
             <Form inline className="searchInput" onSubmit={handleSubmit}>
-              <FormControl value={query} onChange={handleQuery} type="text" placeholder="Search" className="mr-sm-2" />
+              <FormControl
+                value={query}
+                onChange={handleQuery}
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2"
+              />
             </Form>
             {isQuerySet && (
               <ul id="topNavFormList">
                 {areUsersLoaded &&
                   users
-                    .filter((user) => user.name.toLowerCase().startsWith(`${query}`))
-                    .slice(0, 18)
+                    .filter((user) => user.name.startsWith(`${query}`))
                     .map((user) => (
-                      <li className="formListItems line-clamp-one" key={user._id}>
+                      <li
+                        className="formListItems line-clamp-one"
+                        key={user._id}
+                      >
                         <FormSearchUser user={user} />
                       </li>
                     ))}
@@ -111,7 +125,10 @@ const TopNav = () => {
             )}
           </div> */}
         </div>
-        <div className="d-flex justify-content-center align-items-center" id="topNavRight">
+        <div
+          className="d-flex justify-content-center align-items-center"
+          id="topNavRight"
+        >
           <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
             <Nav className="mr-auto">
               <div className="d-flex justify-content-center align-items-center">
@@ -157,7 +174,7 @@ const TopNav = () => {
         </div>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default TopNav;
+export default TopNav
