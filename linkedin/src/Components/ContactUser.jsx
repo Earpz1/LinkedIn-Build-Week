@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 
 const ContactUser = () => {
   const contact = useSelector((state) => state.user.contact);
+  const contactExperiences = useSelector((state) => state.user.contactExperiences);
+  console.log("contact's experiences: ", contactExperiences);
   const usersLoaded = useSelector((state) => state.user.usersLoaded);
   return (
     <>

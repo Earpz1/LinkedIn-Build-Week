@@ -1,23 +1,19 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import {
-  fetchUsers,
-  fetchProfile,
-  currentUser,
-  fetchExperiences,
-} from '../redux/actions'
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchUsers, fetchProfile, currentUser, fetchExperiences } from "../redux/actions";
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const usersData = useSelector((state) => state.user.users)
-  const currentUserData = useSelector((state) => state.user.currentUser)
-  const usersLoaded = useSelector((state) => state.user.usersLoaded)
+  const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.user.users);
+  const currentUserData = useSelector((state) => state.user.currentUser);
+  const usersLoaded = useSelector((state) => state.user.usersLoaded);
+  const contact = useSelector((state) => state.user.contact);
 
   useEffect(() => {
-    dispatch(fetchProfile())
-    dispatch(fetchExperiences(currentUserData._id))
-    dispatch(fetchUsers())
-  }, [])
+    dispatch(fetchProfile());
+    dispatch(fetchExperiences(currentUserData._id));
+    dispatch(fetchUsers());
+  }, []);
 
   return (
     <>
@@ -31,7 +27,7 @@ const Home = () => {
           ))}
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -2,7 +2,7 @@ import { Button, Image } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getContactAction } from "../redux/actions";
+import { getContactAction, userNowAction, getContactExperiences } from "../redux/actions";
 
 const RightSideUser = ({ user }) => {
   const dispatch = useDispatch();
@@ -13,6 +13,9 @@ const RightSideUser = ({ user }) => {
         to={`/${user.name}-${user.surname}`}
         onClick={() => {
           dispatch(getContactAction(user));
+          // dispatch(userNowAction(user));
+
+          dispatchEvent(getContactExperiences(user._id));
         }}
       >
         <div id="rightSideUserSingleElement">

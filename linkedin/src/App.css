@@ -90,6 +90,11 @@
   background-color: #ebebeb;
 }
 
+#lowerProfileCardExperience {
+  background-color: white;
+  padding: 1em 1em 0em 1em;
+}
+
 /*PROFILE RIGHT*/
 #profileRight {
   background-color: white;
@@ -295,6 +300,12 @@ NEW SYLING FOR TopNav - search & deleteButton
   width: 2rem;
   object-fit: cover;
 }
+
+/* EXPERIENCE */
+#experienceList {
+  padding: 0;
+}
+
 /* UTILITY CALSSES: */
 .line-clamp-one {
   display: -webkit-box;

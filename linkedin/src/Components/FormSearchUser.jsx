@@ -1,7 +1,7 @@
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getContactAction } from "../redux/actions";
+import { getContactAction, getContactExperiences } from "../redux/actions";
 
 const FormSearchUser = ({ user }) => {
   const dispatch = useDispatch();
@@ -10,6 +10,8 @@ const FormSearchUser = ({ user }) => {
       to={`${user.name}-${user.surname}`}
       onClick={() => {
         dispatch(getContactAction(user));
+        // dispatchEvent(getContactExperiences(user._id));
+        dispatch(getContactExperiences());
       }}
     >
       <div>
