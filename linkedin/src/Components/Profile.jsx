@@ -1,7 +1,8 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import ProfileHeader from './ProfileHeader'
 import ProfileRight from './ProfileRight'
-
+import EditExperienceModal from './EditExperienceModal'
+import AddExperienceModal from './AddExperience'
 const Profile = () => {
   return (
     <>
@@ -9,6 +10,8 @@ const Profile = () => {
         <div className=" d-flex justify-content-between">
           <div>
             <ProfileHeader />
+            <AddExperienceModal />
+            <EditExperienceModal />
           </div>
           <Col>
             <ProfileRight />

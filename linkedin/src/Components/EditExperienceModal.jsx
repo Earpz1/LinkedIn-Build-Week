@@ -92,8 +92,8 @@ function EditExperienceModal() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Pencil
+      <Button variant="primary" onClick={handleShow} className="ml-5 mt-3">
+        Edit Experience
       </Button>
 
       <Modal show={show} onHide={handleClose}>
