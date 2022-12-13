@@ -19,25 +19,27 @@ const ProfileHeader = () => {
         </div>
         <div id="lowerProfileCard" className="d-flex justify-content-between">
           <div>
-            <b>
-              {usersData.name} {usersData.surname}
-            </b>
-            <br />
-            {usersData.title}
-            <br />
-            {usersData.area} - <a href="#">Contact Info</a>
-            <br />
-            <a href="#">1 Connection</a>
-            <br />
-            <br />
+            <div className="mb-3">
+              <h3 className="m-0">
+                {usersData.name} {usersData.surname}
+              </h3>
+              <p className="m-0">{usersData.title}</p>
+              <p className="m-0 greyedInfo">
+                {usersData.area} - <a href="#">Contact Info</a>
+              </p>
+
+              <a href="#">1 Connection</a>
+            </div>
             <div>
-              <Button className="mr-3" variant="primary">
+              <Button className="mr-3 rounded-pill" variant="primary">
                 Open to
               </Button>
-              <Button className="mr-3" variant="outline-primary">
+              <Button className="mr-3 rounded-pill" variant="outline-primary">
                 Add Profile Section
               </Button>
-              <Button variant="outline-dark">More</Button>
+              <Button variant="outline-dark" className="rounded-pill">
+                More
+              </Button>
             </div>
           </div>
           <div>

@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { FiDelete } from "react-icons/fi";
 import FormSearchUser from "./FormSearchUser";
 import ClickAwayListener from "@mui/base/ClickAwayListener";
+/*note that Clickawaylistener is installed for the purpose of detecting the user clicking outside of the search bar. It is in use on this page. I installed it using npm i  */
 import HiddenNav from "./HiddenNav";
 
 const TopNav = () => {
@@ -43,7 +44,7 @@ const TopNav = () => {
       <Navbar expand="lg justify-content-center">
         <Container>
           <div
-            className="d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-left align-items-center"
             id="parentDivForm"
           >
             <Link to="/">
@@ -55,13 +56,10 @@ const TopNav = () => {
                 id="generalSearchArea"
                 className={
                   searchSelected === true
-                    ? "d-flex justify-content-center align-items-center searchSetSelected"
-                    : "d-flex justify-content-center align-items-center"
+                    ? "d-flex  align-items-center searchSetSelected"
+                    : "d-flex  align-items-center"
                 }
               >
-                <div id="topNavDeleteInput">
-                  <FiDelete onClick={handleClearInput} />
-                </div>
                 <div className="pl-3 pr-2">
                   <GoSearch />
                 </div>
@@ -71,10 +69,12 @@ const TopNav = () => {
                     onChange={handleQuery}
                     type="text"
                     placeholder="Search"
-                    className="mr-sm-2"
                     onClick={() => setSearchSelected(true)}
                   />
                 </Form>
+                <div id="topNavDeleteInput">
+                  <FiDelete onClick={handleClearInput} />
+                </div>
                 {isQuerySet && (
                   <ul id="topNavFormList">
                     {areUsersLoaded &&

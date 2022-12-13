@@ -94,6 +94,11 @@
   background-color: white;
   padding: 1em 1em 0em 1em;
 }
+/*Experience*/
+.companylogo {
+  width: 60px;
+  height: 60px;
+}
 
 /*PROFILE RIGHT*/
 #profileRight {
@@ -158,22 +163,29 @@
   margin-left: 0.4em;
   padding: 6px 4px;
   border-radius: 5px;
-  transition: border, transform 1s ease-in-out;
+  -webkit-transition: width 1s ease-in-out;
+  transition: border, width 1s ease-in-out;
+}
+
+.searchInput {
+  width: 100%;
 }
 
 .searchInput input {
   border: none;
   background-color: transparent;
   outline: none;
+  width: 100%;
 }
 
 .searchSetSelected {
-  border: #191919 solid 2pt;
+  border: #191919 solid 2px;
+  width: 400px;
 }
 
 #basic-nav-dropdown {
   padding: 0;
-  font-size: 0.85rem;
+  font-size: 10pt;
   margin-top: 5px;
 }
 
@@ -181,6 +193,32 @@
   height: 60px;
   padding-right: 1em;
   border-right: #c6c5c3 solid 1pt;
+}
+/*try for free text*/
+#basic-navbar-nav > div > div.topNavWorkBox > div > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  width: 114px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+
+#basic-navbar-nav
+  > div
+  > div.topNavWorkBox
+  > div
+  > div:nth-child(2)
+  > #trypremium {
+  color: #d59509;
+}
+#basic-navbar-nav
+  > div
+  > div.topNavWorkBox
+  > div
+  > div:nth-child(2)
+  #trypremium:hover {
+  color: #533903;
 }
 
 /*TOP NAV: user drop-down modal*/
@@ -249,6 +287,7 @@ NEW SYLING FOR TopNav - search & deleteButton
 /* TOP NAV: FORM */
 #parentDivForm {
   position: relative;
+  width: 444px;
 }
 
 #topNavFormDiv {
@@ -260,7 +299,7 @@ NEW SYLING FOR TopNav - search & deleteButton
 }
 #topNavFormList {
   position: absolute;
-  top: 38px;
+  top: 42px;
   left: 42px;
   border: 1px solid lightgrey;
   border-radius: 10px;
@@ -278,9 +317,9 @@ NEW SYLING FOR TopNav - search & deleteButton
   color: #666666;
 }
 #topNavDeleteInput {
-  position: absolute;
-  transform: translateY(-16.5px);
-  transform: translateX(105px);
+  display: flex;
+  justify-content: right;
+  align-items: center;
   color: #666666;
   cursor: pointer;
 }
