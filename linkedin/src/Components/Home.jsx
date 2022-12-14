@@ -48,7 +48,6 @@ const Home = () => {
               <NewsFeedItem />
               <NewsFeedItem />
               <NewsFeedItem />
-              <NewsFeedItem />
             </Row>
           </Col>
           <Col lg={3} className="px-0">

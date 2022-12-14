@@ -414,7 +414,7 @@ hr {
   border: 0;
   display: inline;
   width: 80%;
-  background-color: #191818;
+  background-color: #bfb9b9;
   height: 10px;
 }
 span {
@@ -442,4 +442,28 @@ span {
 }
 .new-post-type a:hover {
   transform: scale(1.1);
+}
+
+.news-post-profile-image {
+  width: 75px;
+  height: 75px;
+  margin-top: -14px;
+  margin-left: -14px;
+}
+
+.bottom-post-divider {
+  border: 0;
+  width: 100%;
+  background-color: #a9a2a2;
+  height: 1px;
+}
+
+.post-action-buttons a {
+  color: black;
+  text-decoration: none;
+}
+.post-action-buttons a:hover {
+  transform: scale(1.2);
+  text-decoration: none;
+  color: black;
 }
