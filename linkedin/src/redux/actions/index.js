@@ -10,6 +10,7 @@ export const USER_NOW = 'USER_NOW'
 export const GET_CURRENT_POST = 'GET_CURRENT_POST'
 export const GET_POSTS_LIST = 'GET_POSTS_LIST'
 export const POSTS_LOADED = 'POSTS_LOADED'
+export const SET_EXPERIENCES_LOADED = 'SET_EXPERIENCES_LOADED'
 
 export const userNowAction = (user) => {
   return {
@@ -76,9 +77,17 @@ export const getPostsListAction = (postsList) => {
   }
 }
 
+export const setExperiencesLoaded = () => {
+  return {
+    type: SET_EXPERIENCES_LOADED,
+    payload: true,
+  }
+}
+
 export const fetchUsers = () => {
   return async (dispatch, getState) => {
     console.log('We are fetching users here')
+    console.log('Testing: ', getState())
     const options = {
       method: 'GET',
       headers: {
@@ -96,6 +105,7 @@ export const fetchUsers = () => {
         let usersData = await response.json()
         console.log(usersData)
         dispatch(userSelectedAction(usersData))
+        // dispatch(fetchExperiences(usersData._id))
         dispatch(usersLoaded())
       }
     } catch (error) {
@@ -152,6 +162,7 @@ export const fetchExperiences = (userID) => {
         let usersExperience = await response.json()
         console.log(usersExperience)
         dispatch(selectedExperienceAction(usersExperience))
+        dispatch(setExperiencesLoaded())
       }
     } catch (error) {
       console.log(error)
@@ -216,7 +227,7 @@ export const getContactExperiences = (contactId) => {
 
 export const setPostsLoaded = () => {
   return {
-    type: 'POSTS_LOADED',
+    type: POSTS_LOADED,
     payload: true,
   }
 }

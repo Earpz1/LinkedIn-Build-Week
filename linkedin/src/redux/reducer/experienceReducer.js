@@ -1,8 +1,9 @@
-import { SELECTED_EXPERIENCE } from '../actions'
+import { SELECTED_EXPERIENCE, SET_EXPERIENCES_LOADED } from '../actions'
 
 const initialState = {
   experience: {
     content: [],
+    experienceLoaded: false,
   },
 }
 
@@ -14,6 +15,15 @@ const experienceReducer = (state = initialState, action) => {
         experience: {
           ...state.experience,
           content: [action.payload],
+        },
+      }
+
+    case SET_EXPERIENCES_LOADED:
+      return {
+        ...state,
+        experience: {
+          ...state.experience,
+          experienceLoaded: action.payload,
         },
       }
 

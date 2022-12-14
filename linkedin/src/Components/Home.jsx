@@ -44,14 +44,14 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchProfile())
-    dispatch(fetchExperiences(currentUserData._id))
     dispatch(fetchUsers())
     dispatch(fetchPostsList())
-  }, [])
+    // dispatch(fetchExperiences(currentUserData._id))
+  }, [usersLoaded])
 
   return (
     <>
-      {postsList && (
+      {postsLoaded && (
         <Container>
           <Row className="mt-4">
             <Col lg={3} className="pr-0">
