@@ -4,7 +4,7 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 const TopNavWork = () => {
   return (
     <div className="d-flex">
-      <div className="d-flex flex-column align-items-center">
+      <div className="d-flex flex-column align-items-center pl-3">
         <BsFillGrid3X3GapFill size={20} />
         <NavDropdown title="Work" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

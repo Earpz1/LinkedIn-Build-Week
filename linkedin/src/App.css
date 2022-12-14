@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap");
 
 .App {
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 #root {
   background-color: #f3f2ef;
@@ -87,6 +87,9 @@
   background-color: transparent;
   color: #5e5e5e;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #editButton:hover {
@@ -157,7 +160,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 0.5em;
   color: #666666;
 }
 
@@ -192,8 +194,11 @@
   margin-top: 5px;
 }
 
-#basic-navbar-nav > div > div.d-flex.justify-content-center.align-items-center {
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-between.align-items-center {
   height: 60px;
+  width: 444px;
   padding-right: 1em;
   border-right: #c6c5c3 solid 1pt;
 }
@@ -232,14 +237,28 @@
 /*TOP NAV: user drop-down modal*/
 #basic-navbar-nav
   > div
-  > div.d-flex.justify-content-center.align-items-center
+  > div.d-flex.justify-content-between.align-items-center
   > div
   > div.nav-item.show.dropdown
   > div {
   width: 250px;
-  left: -195px;
+  left: -202px;
   top: 40px;
   border-radius: 10px 0px 10px 10px;
+}
+
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-between.align-items-center
+  > div
+  > div.nav-item.show.dropdown
+  > div
+  > div.dropdown-item
+  > div
+  > button {
+  background-color: transparent;
+  color: blue;
+  padding: 0;
 }
 
 /*TOP NAV: user modal button*/
@@ -268,6 +287,11 @@
 }
 
 /* PROFILE - RIGHT SIDE */
+
+#profileRight a {
+  text-decoration: none;
+}
+
 #rightSideUserImg {
   width: 2rem;
   object-fit: cover;
@@ -287,6 +311,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
+  border: #5e5e5e solid 1pt;
+  color: #5e5e5e;
+  font-weight: bold;
+}
+
+#followBtn:hover {
+  background-color: #ebebeb;
+  box-shadow: inset 0 0 0 2px #5e5e5e;
 }
 
 /* -----------------------------------------------

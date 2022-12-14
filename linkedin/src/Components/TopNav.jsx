@@ -110,33 +110,33 @@ const TopNav = () => {
           >
             <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
               <Nav className="mr-auto">
-                <div className="d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-between align-items-center">
                   <Link to="/" className="top-nav-links">
-                    <div className="ml-4 navbar-links">
+                    <div className="navbar-links">
                       <HiHome className=" navbar-icons" />
                       <p className="mb-0 top-nav-text-icons">Home</p>
                     </div>
                   </Link>
                   <Link href="#link" className="top-nav-links">
-                    <div className="ml-4 navbar-links">
+                    <div className="navbar-links">
                       <MdPeopleAlt className=" navbar-icons" />
                       <p className="mb-0 top-nav-text-icons">My Network</p>
                     </div>
                   </Link>
                   <Link className="top-nav-links">
-                    <div className="ml-4 navbar-links">
+                    <div className="navbar-links">
                       <BsBriefcaseFill className=" navbar-icons" />
                       <p className="mb-0 top-nav-text-icons">Jobs</p>
                     </div>
                   </Link>
                   <Link className="top-nav-links">
-                    <div className="ml-4 navbar-links">
+                    <div className=" navbar-links">
                       <AiFillMessage className=" navbar-icons" />
                       <p className="mb-0 top-nav-text-icons">Messaging</p>
                     </div>
                   </Link>
                   <Link className="top-nav-links">
-                    <div className="ml-4 navbar-links">
+                    <div className="navbar-links">
                       <FaBell className=" navbar-icons" />
                       <p className="mb-0 top-nav-text-icons">Notifications</p>
                     </div>
