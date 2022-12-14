@@ -3,8 +3,9 @@ import { EditModal } from "./EditModal";
 import { useSelector } from "react-redux";
 import ExperienceContactItem from "./ExperienceContactItem";
 const ExperienceContact = () => {
-  const usersData = useSelector((state) => state.user.currentUser);
+  const contact = useSelector((state) => state.user.contact);
   const experiences = useSelector((state) => state.user.contactExperiences);
+  const experiencesLength = experiences.length;
   console.log("the current experience is:", experiences);
   const usersLoaded = useSelector((state) => state.user.usersLoaded);
   return (
@@ -14,12 +15,15 @@ const ExperienceContact = () => {
       {/* <EditModal /> */}
 
       <ul id="experienceList">
-        {usersData &&
+        {experiencesLength > 0 ? (
           experiences[0].map((exp) => (
             <li key={exp._id} className="formListItems line-clamp">
               <ExperienceContactItem data={exp} />
             </li>
-          ))}
+          ))
+        ) : (
+          <h2>No experience</h2>
+        )}
       </ul>
       {/* </div>
       </div> */}
