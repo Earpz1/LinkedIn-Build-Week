@@ -10,8 +10,7 @@ const FormSearchUser = ({ user }) => {
       to={`${user.name}-${user.surname}`}
       onClick={() => {
         dispatch(getContactAction(user));
-        // dispatchEvent(getContactExperiences(user._id));
-        dispatch(getContactExperiences());
+        dispatch(getContactExperiences(user._id));
       }}
     >
       <div>

@@ -171,32 +171,7 @@ export const editUser = (user) => {
   };
 };
 
-// export const getContactExperiences = (contactId) => {
-//   return async (dispatch, getState) => {
-//     console.log("getting all the contact's experiences");
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
-//       },
-//     };
-//     const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/${contactId}/experiences`;
-
-//     try {
-//       const response = await fetch(fetchURL, options);
-//       if (response.ok) {
-//         console.log("the response for the contact's experiences is:", response);
-//         let experiences = await response.json();
-//         console.log("the contact's experiences are:", experiences);
-//         dispatch(getContactExperiencesAction(experiences));
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
-export const getContactExperiences = () => {
+export const getContactExperiences = (contactId) => {
   return async (dispatch, getState) => {
     console.log("getting all the contact's experiences");
     const options = {
@@ -206,7 +181,7 @@ export const getContactExperiences = () => {
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
       },
     };
-    const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/5fc4af0bb708c200175de88e/experiences`;
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/${contactId}/experiences`;
 
     try {
       const response = await fetch(fetchURL, options);
@@ -221,3 +196,28 @@ export const getContactExperiences = () => {
     }
   };
 };
+// export const getContactExperiences = () => {
+//   return async (dispatch, getState) => {
+//     console.log("getting all the contact's experiences");
+//     const options = {
+//       method: "GET",
+//       headers: {
+//         Authorization:
+//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
+//       },
+//     };
+//     const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/5fc4af0bb708c200175de88e/experiences`;
+
+//     try {
+//       const response = await fetch(fetchURL, options);
+//       if (response.ok) {
+//         console.log("the response for the contact's experiences is:", response);
+//         let experiences = await response.json();
+//         console.log("the contact's experiences are:", experiences);
+//         dispatch(getContactExperiencesAction(experiences));
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
