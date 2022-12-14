@@ -377,3 +377,69 @@ NEW SYLING FOR TopNav - search & deleteButton
 .grow:hover {
   transform: scale(1.1);
 }
+
+.left-feed-box {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+
+.new-post {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+
+.right-feed-box {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+
+.main-feed-content {
+  width: 200px;
+}
+
+.news-feed-post {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+
+hr {
+  border: 0;
+  display: inline;
+  width: 80%;
+  background-color: #191818;
+  height: 10px;
+}
+span {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.new-post-image {
+  width: 75px;
+  height: 75px;
+  margin-top: -14px;
+}
+
+.new-post-form {
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.new-post-type a {
+  font-size: 2em;
+  color: gray;
+  font-weight: 700;
+}
+.new-post-type a:hover {
+  transform: scale(1.1);
+}
