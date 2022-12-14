@@ -9,7 +9,7 @@ import { IoIosSend } from 'react-icons/io'
 const NewsFeedItem = () => {
   return (
     <>
-      <div className="news-feed-post mt-4 d-flex justify-content-evenly">
+      <div className="news-feed-post mt-3 d-flex justify-content-evenly">
         <Row className="d-flex">
           <img
             className="news-post-profile-image ml-2"
@@ -40,7 +40,9 @@ const NewsFeedItem = () => {
               <small>42</small>
             </div>
             <div>
-              <small className="mr-3">1 Comment</small>
+              <a href="#" className="commentLink">
+                <small className="mr-3">1 Comment</small>
+              </a>
             </div>
           </div>
           <hr className="bottom-post-divider" />
