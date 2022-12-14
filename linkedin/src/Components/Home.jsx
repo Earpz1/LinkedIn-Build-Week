@@ -12,6 +12,7 @@ import CreateNewPost from './CreateNewPost'
 import HomePageRight from './HomePageRight'
 import NewsFeedItem from './NewsFeedItem'
 import { AiFillCaretDown } from 'react-icons/ai'
+import ProfileRight from './ProfileRight'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -48,11 +49,10 @@ const Home = () => {
               <NewsFeedItem />
               <NewsFeedItem />
               <NewsFeedItem />
-              <NewsFeedItem />
             </Row>
           </Col>
           <Col lg={3} className="px-0">
-            <HomePageRight className="px-0" />
+            <ProfileRight />
           </Col>
         </Row>
       </Container>
