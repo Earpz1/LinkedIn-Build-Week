@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { editUser, fetchProfile } from '../redux/actions'
 import { BsPencil } from 'react-icons/bs'
+import { fetchExperiences } from '../redux/actions'
 
 function EditExperienceModal(props) {
   console.log(props.experience)
@@ -10,39 +11,39 @@ function EditExperienceModal(props) {
   const usersData = useSelector((state) => state.user.currentUser)
 
   const [show, setShow] = useState(false)
-  const [name, setname] = useState(usersData.name)
-  const [email, setemail] = useState(usersData.email)
-  const [surname, setsurname] = useState(usersData.surname)
-  const [title, settitle] = useState(usersData.title)
-  const [bio, setbio] = useState(usersData.bio)
-  const [area, setarea] = useState(usersData.area)
+  const [role, setrole] = useState(props.experience.role)
+  const [company, setcompany] = useState(props.experience.company)
+  const [startdate, setstartdate] = useState(props.experience.startDate)
+  const [enddate, setenddate] = useState(props.experience.endDate)
+  const [description, setdescription] = useState(props.experience.description)
+  const [area, setarea] = useState(props.experience.area)
 
-  const handleEditName = (event) => {
-    setname(event.target.value)
-    console.log(name)
+  const handleRole = (event) => {
+    setrole(event.target.value)
+    console.log(role)
   }
 
-  const handleEditSurname = (event) => {
-    setsurname(event.target.value)
-    console.log(surname)
+  const handleCompany = (event) => {
+    setcompany(event.target.value)
+    console.log(company)
   }
 
-  const handleEditEmail = (event) => {
-    setemail(event.target.value)
-    console.log(email)
+  const handleStartDate = (event) => {
+    setstartdate(event.target.value)
+    console.log(startdate)
   }
 
-  const handleEditTitle = (event) => {
-    settitle(event.target.value)
-    console.log(title)
+  const handleEndDate = (event) => {
+    setenddate(event.target.value)
+    console.log(enddate)
   }
 
-  const handleEditBio = (event) => {
-    setbio(event.target.value)
-    console.log(bio)
+  const handledescription = (event) => {
+    setdescription(event.target.value)
+    console.log(description)
   }
 
-  const handleEditArea = (event) => {
+  const handlearea = (event) => {
     setarea(event.target.value)
     console.log(area)
   }
@@ -50,29 +51,27 @@ function EditExperienceModal(props) {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const user = {
-      name: name,
-      surname: surname,
-      email: email,
-      username: usersData.username,
-      title: title,
-      bio: bio,
+    const experience = {
+      role: role,
+      company: company,
+      startDate: startdate,
+      endDate: enddate,
+      description: description,
       area: area,
-      image: usersData.image,
     }
-    console.log(user)
+
     console.log('We are editing users here')
 
     const options = {
       method: 'PUT',
-      body: JSON.stringify(user),
+      body: JSON.stringify(experience),
       headers: {
         'Content-type': 'application/json',
         Authorization:
           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
       },
     }
-    const fetchURL = 'https://striveschool-api.herokuapp.com/api/profile/'
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/${usersData._id}/experiences/${props.experience._id}`
 
     try {
       let response = await fetch(fetchURL, options)
@@ -81,7 +80,6 @@ function EditExperienceModal(props) {
         console.log('Edit was successful')
         let usersData = await response.json()
         console.log(usersData)
-        dispatch(fetchProfile())
       }
     } catch (error) {
       console.log(error)
@@ -106,17 +104,33 @@ function EditExperienceModal(props) {
           {/* * Indicates required */}
           <Form>
             <Form.Label>Role:</Form.Label>
-            <Form.Control type="text" value={props.experience.role} />
+            <Form.Control type="text" value={role} onChange={handleRole} />
             <Form.Label>Company</Form.Label>
-            <Form.Control type="text" value={props.experience.company} />
+            <Form.Control
+              type="text"
+              value={props.experience.company}
+              onChange={handleCompany}
+            />
             <Form.Label>Start Date: </Form.Label>
-            <Form.Control type="date" value={props.experience.startDate} />
+            <Form.Control
+              type="date"
+              value={startdate}
+              onChange={handleStartDate}
+            />
             <Form.Label>End Date</Form.Label>
-            <Form.Control type="date" value={props.experience.endDate} />
+            <Form.Control
+              type="date"
+              value={enddate}
+              onChange={handleEndDate}
+            />
             <Form.Label>Description</Form.Label>
-            <Form.Control type="text" value={props.experience.description} />
+            <Form.Control
+              type="text"
+              value={description}
+              onChange={handledescription}
+            />
             <Form.Label>Area</Form.Label>
-            <Form.Control type="text" value={props.experience.area} />
+            <Form.Control type="text" value={area} onChange={handlearea} />
           </Form>
         </Modal.Body>
 
