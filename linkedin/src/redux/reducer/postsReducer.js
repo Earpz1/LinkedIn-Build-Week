@@ -1,11 +1,12 @@
-import { GET_CURRENT_POST, GET_POSTS_LIST } from "../actions";
+import { GET_CURRENT_POST, GET_POSTS_LIST, POSTS_LOADED } from '../actions'
 
 const initialState = {
   posts: {
     postsList: [],
     currentPost: null,
+    postsLoaded: false,
   },
-};
+}
 
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,7 +17,7 @@ const postsReducer = (state = initialState, action) => {
           ...state.experience,
           postsList: [action.payload],
         },
-      };
+      }
 
     case GET_CURRENT_POST:
       return {
@@ -25,11 +26,20 @@ const postsReducer = (state = initialState, action) => {
           ...state.experience,
           currentPost: action.payload,
         },
-      };
+      }
+
+    case POSTS_LOADED:
+      return {
+        ...state,
+        posts: {
+          ...state.experience,
+          postsLoaded: action.payload,
+        },
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default postsReducer;
+export default postsReducer
