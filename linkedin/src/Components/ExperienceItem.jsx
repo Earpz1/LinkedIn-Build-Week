@@ -2,6 +2,7 @@ import { Badge } from "react-bootstrap";
 import { RxDividerVertical } from "react-icons/rx";
 import EditModal from "./EditModal";
 import { useSelector } from "react-redux";
+import { format } from "date-fns";
 
 const ExperienceItem = ({ data }) => {
   const me = useSelector((state) => state.user.currentUser);
@@ -39,8 +40,13 @@ const ExperienceItem = ({ data }) => {
                 </p>
                 <p>
                   <small>Date:</small>
-                  <Badge variant="light">{data.startDate}</Badge> -{" "}
-                  <Badge variant="light">{data.endDate}</Badge>
+                  <Badge variant="light">
+                    {format(new Date(data.startDate), "MMM yyyy")}
+                  </Badge>{" "}
+                  -{" "}
+                  <Badge variant="light">
+                    {format(new Date(data.endDate), "MMM yyyy")}
+                  </Badge>
                 </p>
                 <p>
                   <Badge variant="dark">{data.description}</Badge>
