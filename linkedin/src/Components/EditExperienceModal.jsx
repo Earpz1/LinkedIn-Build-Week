@@ -87,6 +87,33 @@ function EditExperienceModal(props) {
     handleClose()
   }
 
+  const handleDelete = async (event) => {
+    event.preventDefault()
+
+    console.log('We are deleting users here')
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
+      },
+    }
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/${usersData._id}/experiences/${props.experience._id}`
+
+    try {
+      let response = await fetch(fetchURL, options)
+      console.log(response)
+      if (response.ok) {
+        console.log('Delete was successful')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    handleClose()
+  }
+
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -137,6 +164,9 @@ function EditExperienceModal(props) {
         <Modal.Footer>
           <Button type="Submit" variant="primary" onClick={handleSubmit}>
             Save Changes
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete Experience
           </Button>
         </Modal.Footer>
       </Modal>
