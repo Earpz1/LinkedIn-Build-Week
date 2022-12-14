@@ -4,6 +4,7 @@ import EditModal from './EditModal'
 import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
 import EditExperienceModal from './EditExperienceModal'
+import AddExperience from './AddExperience'
 
 const ExperienceItem = ({ data }) => {
   const me = useSelector((state) => state.user.currentUser)
@@ -17,6 +18,7 @@ const ExperienceItem = ({ data }) => {
               <h3>Experience</h3>
             </div>
             <div className="d-flex align-items-center">
+              <AddExperience />
               <EditExperienceModal experience={data} />
             </div>
           </div>

@@ -11,7 +11,6 @@ const Profile = () => {
         <div className=" d-flex justify-content-between">
           <div>
             <ProfileHeader />
-            <AddExperienceModal />
             <Experience />
           </div>
           <Col>
