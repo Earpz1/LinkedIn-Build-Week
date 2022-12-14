@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { editUser, fetchProfile } from '../redux/actions'
 import { BsPencil } from 'react-icons/bs'
 import { fetchExperiences } from '../redux/actions'
+import { useEffect } from 'react'
+import { format } from 'date-fns'
 
 function EditExperienceModal(props) {
   console.log(props.experience)
@@ -11,12 +13,23 @@ function EditExperienceModal(props) {
   const usersData = useSelector((state) => state.user.currentUser)
 
   const [show, setShow] = useState(false)
+  const [wasUpdated, setwasUpdated] = useState(false)
+  const [wasDeleted, setwasDeleted] = useState(false)
   const [role, setrole] = useState(props.experience.role)
   const [company, setcompany] = useState(props.experience.company)
   const [startdate, setstartdate] = useState(props.experience.startDate)
   const [enddate, setenddate] = useState(props.experience.endDate)
   const [description, setdescription] = useState(props.experience.description)
   const [area, setarea] = useState(props.experience.area)
+
+  const startDateValue = format(new Date(startdate), 'yyyy-MM-dd')
+  const endDateValue = format(new Date(enddate), 'yyyy-MM-dd')
+
+  useEffect(() => {
+    dispatch(fetchExperiences(usersData._id))
+    setwasUpdated(false)
+    setwasDeleted(false)
+  }, [wasUpdated, wasDeleted])
 
   const handleRole = (event) => {
     setrole(event.target.value)
@@ -80,6 +93,7 @@ function EditExperienceModal(props) {
         console.log('Edit was successful')
         let usersData = await response.json()
         console.log(usersData)
+        setwasUpdated(true)
       }
     } catch (error) {
       console.log(error)
@@ -107,6 +121,7 @@ function EditExperienceModal(props) {
       console.log(response)
       if (response.ok) {
         console.log('Delete was successful')
+        setwasDeleted(true)
       }
     } catch (error) {
       console.log(error)
@@ -119,6 +134,7 @@ function EditExperienceModal(props) {
 
   return (
     <>
+      {console.log(startDateValue)}
       <Button id="editButton" onClick={handleShow}>
         <BsPencil size={20} />
       </Button>
@@ -135,19 +151,19 @@ function EditExperienceModal(props) {
             <Form.Label>Company</Form.Label>
             <Form.Control
               type="text"
-              value={props.experience.company}
+              value={company}
               onChange={handleCompany}
             />
             <Form.Label>Start Date: </Form.Label>
             <Form.Control
               type="date"
-              value={startdate}
+              value={startDateValue}
               onChange={handleStartDate}
             />
             <Form.Label>End Date</Form.Label>
             <Form.Control
               type="date"
-              value={enddate}
+              value={endDateValue}
               onChange={handleEndDate}
             />
             <Form.Label>Description</Form.Label>
