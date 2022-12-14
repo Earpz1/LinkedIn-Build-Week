@@ -194,6 +194,11 @@
   padding-right: 1em;
   border-right: #c6c5c3 solid 1pt;
 }
+
+#basic-navbar-nav .dropdown-item:hover {
+  background-color: transparent;
+}
+
 /*try for free text*/
 #basic-navbar-nav > div > div.topNavWorkBox > div > div:nth-child(2) {
   display: flex;
