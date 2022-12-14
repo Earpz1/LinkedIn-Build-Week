@@ -1,38 +1,374 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  background-color: #f3f2ef;
+  position: relative;
+  padding-top: 4em;
+}
+#root > nav {
+  background-color: white;
+  height: 60px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+  border-bottom: #c6c5c3 solid 1pt;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*Navbar stuff
+#root > nav {
+  display: flex;
+  justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root > nav > div.d-flex > a {
+  display: flex;
+  align-items: center;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+.mainNavLinksBox {
+  display: flex;
+  width: 900px;
+}
+.mainNavLinks {
+  display: flex;
+}*/
+
+/*userInfo*/
+
+#root > div > div {
+  gap: 25px;
+}
+
+#profileContainer {
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  width: 50rem;
+  padding-bottom: 1em;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+#upperCardBackgroundImage {
+  background-image: url(https://farm5.staticflickr.com/4902/44891418625_2056c2bf9f_o.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+#userProfilePic {
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  border: solid white 3pt;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+}
+#lowerProfileCard {
+  background-color: white;
+  padding: 4em 1em 0em 1em;
+}
+#editButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #5e5e5e;
+  border: none;
+}
+
+#editButton:hover {
+  background-color: #ebebeb;
+}
+
+#lowerProfileCardExperience {
+  background-color: white;
+  padding: 1em 1em 0em 1em;
+}
+/*Experience*/
+.companylogo {
+  width: 60px;
+  height: 60px;
+}
+
+/*PROFILE RIGHT*/
+#profileRight {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: #c6c5c3 0px 0px 5px;
+}
+.lineBreaks {
+  color: #c6c5c3;
+}
+
+/* TOP NAV */
+#topNavRight .top-nav-links {
+  text-decoration: none;
+}
+.top-nav-text-icons {
+  color: #666666;
+}
+
+.top-nav-text-icons:hover {
+  color: #191919;
+}
+.navbar-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #666666;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-links:hover {
+  color: #191919;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-icons,
+.top-nav-work-icon,
+.top-nav-profile-icon {
+  font-size: 1.5rem;
+}
+
+.navbar-icons:hover,
+.top-nav-work-icon:hover,
+.top-nav-profile-icon:hover,
+.topNavMeBox:hover,
+.topNavWorkBox:hover {
+  color: #191919;
+}
+
+.topNavMeBox,
+.topNavWorkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.5em;
+  color: #666666;
+}
+
+#generalSearchArea {
+  background-color: #eef3f8;
+  margin-left: 0.4em;
+  padding: 6px 4px;
+  border-radius: 5px;
+  -webkit-transition: width 1s ease-in-out;
+  transition: border, width 1s ease-in-out;
+}
+
+.searchInput {
+  width: 100%;
+}
+
+.searchInput input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.searchSetSelected {
+  border: #191919 solid 2px;
+  width: 400px;
+}
+
+#basic-nav-dropdown {
+  padding: 0;
+  font-size: 10pt;
+  margin-top: 5px;
+}
+
+#basic-navbar-nav > div > div.d-flex.justify-content-center.align-items-center {
+  height: 60px;
+  padding-right: 1em;
+  border-right: #c6c5c3 solid 1pt;
+}
+/*try for free text*/
+#basic-navbar-nav > div > div.topNavWorkBox > div > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  width: 114px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+
+#basic-navbar-nav
+  > div
+  > div.topNavWorkBox
+  > div
+  > div:nth-child(2)
+  > #trypremium {
+  color: #d59509;
+}
+#basic-navbar-nav
+  > div
+  > div.topNavWorkBox
+  > div
+  > div:nth-child(2)
+  #trypremium:hover {
+  color: #533903;
+}
+
+/*TOP NAV: user drop-down modal*/
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-center.align-items-center
+  > div
+  > div.nav-item.show.dropdown
+  > div {
+  width: 250px;
+  left: -195px;
+  top: 40px;
+  border-radius: 10px 0px 10px 10px;
+}
+
+/*TOP NAV: user modal button*/
+#basic-navbar-nav
+  > div
+  > div.d-flex.justify-content-center.align-items-center
+  > div
+  > div.nav-item.show.dropdown
+  > div
+  > a:nth-child(1)
+  > div
+  > button {
+  padding: 0;
+  background-color: transparent;
+  color: blue;
+}
+
+#NavBottom {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 60px;
+  transform: translateY(-60px);
+  z-index: 5;
+  box-shadow: black 1px 0px 5px;
+}
+
+/* PROFILE - RIGHT SIDE */
+#rightSideUserImg {
+  width: 2rem;
+  object-fit: cover;
+}
+
+/* UTILITY CALSSES: */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#followBtn {
+  border-radius: 25px;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -----------------------------------------------
+NEW SYLING FOR TopNav - search & deleteButton
+--------------------------------------------------*/
+/* TOP NAV: FORM */
+#parentDivForm {
+  position: relative;
+  width: 444px;
+}
+
+#topNavFormDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: center;
+  position: relative;
+}
+#topNavFormList {
+  position: absolute;
+  top: 42px;
+  left: 42px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  width: 96%;
+  padding: 0;
+  /* visibility: hidden; */
+  overflow: hidden;
+  z-index: 2;
+  background-color: white;
+}
+
+#topNavSerachIcon {
+  position: absolute;
+  transform: translateY(2.5px);
+  color: #666666;
+}
+#topNavDeleteInput {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  color: #666666;
+  cursor: pointer;
+}
+#topNavDeleteInput:hover {
+  color: #191919;
+}
+
+#topNavFormControl {
+  padding-left: 1.75rem;
+}
+.formListItems {
+  list-style: none;
+  margin: 0.5rem 0;
+}
+/* PROFILE - RIGHT SIDE */
+#rightSideUserImg {
+  width: 2rem;
+  object-fit: cover;
+}
+
+/* EXPERIENCE */
+#experienceList {
+  padding: 0;
+}
+
+/* UTILITY CALSSES: */
+.line-clamp-one {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#followBtn {
+  border-radius: 25px;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grow {
+  transition: transform 350ms ease-out;
+  cursor: pointer;
+}
+.grow:hover {
+  transform: scale(1.1);
 }
