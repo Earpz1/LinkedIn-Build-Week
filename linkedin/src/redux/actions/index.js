@@ -7,6 +7,8 @@ export const GET_CONTACT = `GET_CONTACT`;
 export const SELECTED_EXPERIENCE = "SELECTED_EXPERIENCE";
 export const GET_CONTACT_EXPERIENCES = "GET_CONTACT_EXPERIENCES";
 export const USER_NOW = "USER_NOW";
+export const GET_CURRENT_POST = "GET_CURRENT_POST";
+export const GET_POSTS_LIST = "GET_POSTS_LIST";
 
 export const userNowAction = (user) => {
   return {
@@ -56,6 +58,20 @@ export const selectedExperienceAction = (experience) => {
   return {
     type: "SELECTED_EXPERIENCE",
     payload: experience,
+  };
+};
+
+export const getCurrentPostAction = (post) => {
+  return {
+    type: GET_CURRENT_POST,
+    payload: post,
+  };
+};
+
+export const getPostsListAction = (postsList) => {
+  return {
+    type: GET_POSTS_LIST,
+    payload: postsList,
   };
 };
 
@@ -196,28 +212,31 @@ export const getContactExperiences = (contactId) => {
     }
   };
 };
-// export const getContactExperiences = () => {
-//   return async (dispatch, getState) => {
-//     console.log("getting all the contact's experiences");
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
-//       },
-//     };
-//     const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/5fc4af0bb708c200175de88e/experiences`;
 
-//     try {
-//       const response = await fetch(fetchURL, options);
-//       if (response.ok) {
-//         console.log("the response for the contact's experiences is:", response);
-//         let experiences = await response.json();
-//         console.log("the contact's experiences are:", experiences);
-//         dispatch(getContactExperiencesAction(experiences));
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+// thunk action fro fetching all the posts
+export const fetchPostsList = () => {
+  return async (dispatch, getState) => {
+    console.log("We are fetching posts here");
+    const options = {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
+      },
+    };
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/`;
+
+    try {
+      let response = await fetch(fetchURL, options);
+      console.log(response);
+      if (response.ok) {
+        console.log("Fetch Successful");
+        let postsList = await response.json();
+        console.log(postsList);
+        dispatch(getPostsListAction(postsList));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
