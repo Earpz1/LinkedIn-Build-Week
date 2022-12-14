@@ -1,4 +1,4 @@
-import { GET_CURRENT_POST, GET_POSTS_LIST, POSTS_LOADED } from '../actions'
+import { GET_CURRENT_POST, GET_POSTS_LIST, POSTS_LOADED } from "../actions";
 
 const initialState = {
   posts: {
@@ -6,7 +6,7 @@ const initialState = {
     currentPost: null,
     postsLoaded: false,
   },
-}
+};
 
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,32 +14,32 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           postsList: [action.payload],
         },
-      }
+      };
 
     case GET_CURRENT_POST:
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           currentPost: action.payload,
         },
-      }
+      };
 
     case POSTS_LOADED:
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           postsLoaded: action.payload,
         },
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default postsReducer
+export default postsReducer;
