@@ -1,9 +1,9 @@
-import { Col, Container, Row } from "react-bootstrap";
-import ProfileHeader from "./ProfileHeader";
-import ProfileRight from "./ProfileRight";
-import EditExperienceModal from "./EditExperienceModal";
-import AddExperienceModal from "./AddExperience";
-import Experience from "./Experience";
+import { Col, Container, Row } from 'react-bootstrap'
+import ProfileHeader from './ProfileHeader'
+import ProfileRight from './ProfileRight'
+import EditExperienceModal from './EditExperienceModal'
+import AddExperienceModal from './AddExperience'
+import Experience from './Experience'
 const Profile = () => {
   return (
     <>
@@ -12,7 +12,6 @@ const Profile = () => {
           <div>
             <ProfileHeader />
             <AddExperienceModal />
-            <EditExperienceModal />
             <Experience />
           </div>
           <Col>
@@ -21,7 +20,7 @@ const Profile = () => {
         </div>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
