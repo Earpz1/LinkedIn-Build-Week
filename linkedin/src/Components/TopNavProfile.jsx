@@ -1,9 +1,9 @@
-import { Button, NavDropdown } from "react-bootstrap";
-import { HiHome, HiUserCircle } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Button, NavDropdown } from 'react-bootstrap'
+import { HiHome, HiUserCircle } from 'react-icons/hi'
+import { useNavigate } from 'react-router-dom'
 
 const TopNavProfile = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -25,7 +25,7 @@ const TopNavProfile = () => {
             <Button
               className="rounded-pill"
               onClick={() => {
-                navigate("/Profile");
+                navigate('/Profile')
               }}
             >
               View Profile
@@ -38,6 +38,6 @@ const TopNavProfile = () => {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
     </>
-  );
-};
-export default TopNavProfile;
+  )
+}
+export default TopNavProfile
