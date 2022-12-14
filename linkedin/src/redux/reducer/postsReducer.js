@@ -14,7 +14,7 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           postsList: [action.payload],
         },
       }
@@ -23,7 +23,7 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           currentPost: action.payload,
         },
       }
@@ -32,7 +32,7 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: {
-          ...state.experience,
+          ...state.posts,
           postsLoaded: action.payload,
         },
       }
