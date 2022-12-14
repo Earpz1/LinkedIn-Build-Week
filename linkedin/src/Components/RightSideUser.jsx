@@ -15,7 +15,7 @@ const RightSideUser = ({ user }) => {
           dispatch(getContactAction(user));
           // dispatch(userNowAction(user));
 
-          dispatchEvent(getContactExperiences(user._id));
+          dispatch(getContactExperiences(user._id));
         }}
       >
         <div id="rightSideUserSingleElement">
