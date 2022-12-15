@@ -12,8 +12,6 @@ import EditPost from "./EditPost";
 import { useDispatch } from "react-redux";
 
 const NewsFeedItemProfile = ({ post }) => {
-  const dispatch = useDispatch();
-
   return (
     <>
       <div className="news-feed-post mt-3 d-flex justify-content-evenly">

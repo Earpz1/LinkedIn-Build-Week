@@ -1,4 +1,3 @@
-
 import { Badge, Row } from "react-bootstrap";
 import { BsDot, BsDash } from "react-icons/bs";
 import { FcLike, FcRating } from "react-icons/fc";
@@ -8,13 +7,12 @@ import { BiRepost } from "react-icons/bi";
 import { IoIosSend } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-
 const NewsFeedItem = ({ post }) => {
   return (
     <>
       <div className="news-feed-post mt-3 d-flex justify-content-evenly">
         <Row className="d-flex">
-          <Link>
+          <Link to={"/profile"}>
             <img
               className="news-post-profile-image ml-2"
               src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
@@ -27,12 +25,11 @@ const NewsFeedItem = ({ post }) => {
                 <strong>
                   {post.user.name} {post.user.surname}
                 </strong>
-              </small>{' '}
+              </small>{" "}
               <BsDot className="mt-1" /> <small>3rd+</small>
             </div>
             <div className="d-flex">
-              <small>{post.user.title}</small> <BsDash className="mt-1" />{' '}
-              <small>{post.user.email}</small>
+              <small>{post.user.title}</small> <BsDash className="mt-1" /> <small>{post.user.email}</small>
             </div>
             <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
           </div>
@@ -67,7 +64,7 @@ const NewsFeedItem = ({ post }) => {
         </Row>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NewsFeedItem
+export default NewsFeedItem;

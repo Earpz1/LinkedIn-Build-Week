@@ -7,20 +7,27 @@ import { IoEarth } from "react-icons/io5";
 import { AiFillCaretDown } from "react-icons/ai";
 import { FaEllipsisH } from "react-icons/fa";
 import EmojiPicker from "emoji-picker-react";
-import { profilePostsListAction, getCurrentPostAction } from "../redux/actions";
+import { profilePostsListAction, getCurrentPostAction, fetchPostsList } from "../redux/actions";
 import { BsPencil } from "react-icons/bs";
+import { useEffect } from "react";
 
 function EditPost({ post }) {
   const dispatch = useDispatch();
   const currentPost = useSelector((state) => state.posts.posts.currentPost);
-
+  const postsList = useSelector((state) => state.posts.posts.postsList);
   console.log("the current post is: ", currentPost);
 
   const [show, setShow] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
   const [postText, setPostText] = useState("");
-  const [wasUpdated, setwasUpdated] = useState(false);
-  const [wasDeleted, setwasDeleted] = useState(false);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  useEffect(() => {
+    fetchPostsList();
+    setIsUpdated(false);
+    setIsDeleted(false);
+  }, [isUpdated, isDeleted, postsList]);
 
   console.log("we are currently posting: ", postText);
 
@@ -65,7 +72,7 @@ function EditPost({ post }) {
         const updatedPost = await response.json();
         console.log("the updated post is: ", updatedPost);
         dispatch(getCurrentPostAction(updatedPost));
-        setwasUpdated(true);
+        setIsUpdated(true);
       }
     } catch (error) {
       console.log(error);
@@ -96,7 +103,7 @@ function EditPost({ post }) {
         console.log("Post deleted successfully");
         const deletedPost = await response.json();
         console.log("the deleted post is: ", deletedPost);
-        setwasDeleted(true);
+        setIsDeleted(true);
       }
     } catch (error) {
       console.log(error);
