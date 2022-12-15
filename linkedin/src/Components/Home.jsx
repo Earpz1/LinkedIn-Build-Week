@@ -13,7 +13,6 @@ import ProfileRight from "./ProfileRight";
 
 import LinkedInFooter from "./LinkedInFooter";
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
@@ -25,12 +24,8 @@ const Home = () => {
   const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
   console.log("the posts are: ", postsList);
 
-
-  const postsList = useSelector((state) => state.posts.posts.postsList);
-
   //const profilePostsList = useSelector((state) => state.posts.posts.profilePosts.slice().reverse());
 
-  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
   const profilePosts = useSelector((state) => state.posts.posts.profilePosts);
   console.log("the posts are: ", postsList);
   //console.log("the profile posts are: ", profilePostsList);
