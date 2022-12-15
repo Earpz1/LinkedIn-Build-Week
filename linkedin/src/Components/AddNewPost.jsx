@@ -13,6 +13,7 @@ import { IoEarth } from 'react-icons/io5'
 import { AiFillCaretDown } from 'react-icons/ai'
 import { FaEllipsisH } from 'react-icons/fa'
 import EmojiPicker from 'emoji-picker-react'
+import ImageUpload from './ImageUpload'
 
 function AddNewPost() {
   const [show, setShow] = useState(false)
@@ -124,6 +125,7 @@ function AddNewPost() {
         <Modal.Footer>
           <Row className="w-100 justify-content-between">
             <div className="footer-icons-new-post">
+              <ImageUpload />
               <BsFillImageFill className="ml-3 mr-2" />
               <BsCameraVideoFill className="ml-5 mr-2" />
               <BsFillFileArrowUpFill className="ml-5 mr-2" />
