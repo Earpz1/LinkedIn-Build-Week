@@ -588,10 +588,10 @@ footer #footerLogo {
   box-shadow: inset 0 0 0 2px;
 }
 
-
 .upload-post-image:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
 
 .altFooterLinks a {
   color: #5e5e5e;
@@ -605,4 +605,8 @@ footer #footerLogo {
 
 #littleLogo {
   color: #0a66c2;
+}
+
+.post-image {
+  width: 500px;
 }

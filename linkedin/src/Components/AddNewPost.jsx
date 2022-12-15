@@ -15,6 +15,7 @@ import { FaEllipsisH } from 'react-icons/fa'
 import EmojiPicker from 'emoji-picker-react'
 import ImageUpload from './ImageUpload'
 import { profilePostsListAction } from '../redux/actions'
+import axios from 'axios'
 
 function AddNewPost() {
   const dispatch = useDispatch()
@@ -22,6 +23,8 @@ function AddNewPost() {
   const [show, setShow] = useState(false)
   const [showEmoji, setShowEmoji] = useState(false)
   const [postText, setPostText] = useState('')
+  const [selectedFile, setselectedFile] = useState()
+  const [isFilePicked, setisFilePicked] = useState(false)
   const currentUserData = useSelector((state) => state.user.currentUser)
 
   console.log('we are currently posting: ', postText)
@@ -32,6 +35,12 @@ function AddNewPost() {
     } else {
       setShowEmoji(true)
     }
+  }
+
+  const changeHandler = (event) => {
+    setselectedFile(event.target.files[0])
+    console.log(selectedFile)
+    setisFilePicked(true)
   }
 
   const addEmoji = (emoji) => {
@@ -67,9 +76,26 @@ function AddNewPost() {
       console.log(response)
 
       if (response.ok) {
-        console.log('Post was successful')
+        console.log('Post was successful: ', response)
         const post = await response.json()
-        console.log('the post is: ', post)
+
+        if (isFilePicked) {
+          const url = `https://striveschool-api.herokuapp.com/api/posts/${post._id}`
+          const formData = new FormData()
+          formData.append('post', selectedFile)
+          const config = {
+            headers: {
+              'content-Type': 'multipart/form-data',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
+            },
+          }
+          axios.post(url, formData, config).then((response) => {
+            console.log(response.data)
+          })
+        }
+
+        console.log('the post is: ', post._id)
         dispatch(profilePostsListAction(post))
       }
     } catch (error) {
@@ -152,7 +178,19 @@ function AddNewPost() {
         <Modal.Footer>
           <Row className="w-100 justify-content-between">
             <div className="footer-icons-new-post">
-              <ImageUpload />
+              <label for="actual-btn">
+                <BsFillImageFill
+                  className="ml-3 mr-2 upload-post-image"
+                  onChange={changeHandler}
+                />
+              </label>
+              <input
+                id="actual-btn"
+                type="file"
+                onChange={changeHandler}
+                hidden
+              />
+              {isFilePicked && <span>{selectedFile.name}</span>}
               <BsCameraVideoFill className="ml-5 mr-2" />
               <BsFillFileArrowUpFill className="ml-5 mr-2" />
               <FaEllipsisH className="ml-5 mr-2" />

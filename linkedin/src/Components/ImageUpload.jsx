@@ -18,7 +18,7 @@ const ImageUpload = () => {
     const url =
       'https://striveschool-api.herokuapp.com/api/profile/6396f0a9c96dfb001521a5bc/picture'
     const formData = new FormData()
-    formData.append('profile', selectedFile)
+    formData.append('post', selectedFile)
     const config = {
       headers: {
         'content-Type': 'multipart/form-data',

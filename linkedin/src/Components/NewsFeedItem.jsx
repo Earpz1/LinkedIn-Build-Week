@@ -1,10 +1,10 @@
-import { Badge, Row } from "react-bootstrap";
-import { BsDot, BsDash } from "react-icons/bs";
-import { FcLike, FcRating } from "react-icons/fc";
-import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { FaRegCommentDots } from "react-icons/fa";
-import { BiRepost } from "react-icons/bi";
-import { IoIosSend } from "react-icons/io";
+import { Badge, Row } from 'react-bootstrap'
+import { BsDot, BsDash } from 'react-icons/bs'
+import { FcLike, FcRating } from 'react-icons/fc'
+import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
+import { FaRegCommentDots } from 'react-icons/fa'
+import { BiRepost } from 'react-icons/bi'
+import { IoIosSend } from 'react-icons/io'
 
 const NewsFeedItem = ({ post }) => {
   return (
@@ -21,15 +21,17 @@ const NewsFeedItem = ({ post }) => {
                 <strong>
                   {post.user.name} {post.user.surname}
                 </strong>
-              </small>{" "}
+              </small>{' '}
               <BsDot className="mt-1" /> <small>3rd+</small>
             </div>
             <div className="d-flex">
-              <small>{post.user.title}</small> <BsDash className="mt-1" /> <small>{post.user.email}</small>
+              <small>{post.user.title}</small> <BsDash className="mt-1" />{' '}
+              <small>{post.user.email}</small>
             </div>
+            <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
           </div>
-          <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
-          <img className="mt-3" src="https://picsum.photos/505/300" />
+
+          <img className="mt-3 post-image" src={post.image} />
           <div className="d-flex mt-2 ml-2 justify-content-between w-100">
             <div>
               <FcLike /> <AiFillLike />
@@ -59,7 +61,7 @@ const NewsFeedItem = ({ post }) => {
         </Row>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NewsFeedItem;
+export default NewsFeedItem
