@@ -81,7 +81,6 @@ const Home = () => {
               <ProfileRight />
             </Col>
           </Row>
-          <LinkedInFooter />
         </Container>
       )}
     </>

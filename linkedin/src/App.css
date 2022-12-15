@@ -562,12 +562,12 @@ span {
 footer #footerLogo {
   color: #0a66c2;
 }
-#root > div.container > footer > div > div.row > div:nth-child(1) a {
+.footerLinks a {
   color: #5e5e5e;
   font-size: 10pt;
   font-weight: 400;
 }
-#root > div.container > footer > div > div.row > div:nth-child(1) a:hover {
+.footerLinks a:hover {
   color: blue;
 }
 .footerBoldText {

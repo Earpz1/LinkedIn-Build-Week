@@ -26,7 +26,7 @@ const LinkedInFooter = () => {
             </g>
           </svg>
         </div>
-        <Row style={{ color: "#5e5e5e" }}>
+        <Row style={{ color: "#5e5e5e" }} className="footerLinks">
           <Col>
             <Row>
               <Col>

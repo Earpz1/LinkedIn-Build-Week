@@ -1,19 +1,20 @@
-import { Col, Container, Row } from 'react-bootstrap'
-import ProfileHeader from './ProfileHeader'
-import ProfileRight from './ProfileRight'
-import EditExperienceModal from './EditExperienceModal'
-import AddExperienceModal from './AddExperience'
-import Experience from './Experience'
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchExperiences } from '../redux/actions'
+import { Col, Container, Row } from "react-bootstrap";
+import ProfileHeader from "./ProfileHeader";
+import ProfileRight from "./ProfileRight";
+import EditExperienceModal from "./EditExperienceModal";
+import AddExperienceModal from "./AddExperience";
+import Experience from "./Experience";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchExperiences } from "../redux/actions";
+import LinkedInFooter from "./LinkedInFooter";
 const Profile = () => {
-  const dispatch = useDispatch()
-  const currentUserData = useSelector((state) => state.user.currentUser)
-  const usersLoaded = useSelector((state) => state.user.usersLoaded)
+  const dispatch = useDispatch();
+  const currentUserData = useSelector((state) => state.user.currentUser);
+  const usersLoaded = useSelector((state) => state.user.usersLoaded);
 
   if (usersLoaded) {
-    dispatch(fetchExperiences(currentUserData._id))
+    dispatch(fetchExperiences(currentUserData._id));
   }
 
   return (
@@ -28,9 +29,12 @@ const Profile = () => {
             <ProfileRight />
           </Col>
         </div>
+        <div className="mt-4">
+          <LinkedInFooter />
+        </div>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
