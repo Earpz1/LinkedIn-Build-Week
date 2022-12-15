@@ -606,3 +606,7 @@ footer #footerLogo {
 #littleLogo {
   color: #0a66c2;
 }
+
+.post-image {
+  width: 500px;
+}
