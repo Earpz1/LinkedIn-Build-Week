@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap");
 
 .App {
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 #root {
   background-color: #f3f2ef;
@@ -443,7 +443,6 @@ NEW SYLING FOR TopNav - search & deleteButton
 }
 #top-left-home-bottom {
   padding-top: 3.5em;
-  padding-bottom: 1em;
 }
 .top-left-line-breaks {
   border-bottom: 1px #c6c5c3 solid;
@@ -469,6 +468,37 @@ NEW SYLING FOR TopNav - search & deleteButton
 }
 .top-left-link-boxes:hover {
   background-color: lightgray;
+}
+.top-left-direct-link:hover {
+  background-color: lightgray;
+}
+
+#premiumTag {
+  color: black;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+
+#root
+  > div.container
+  > div
+  > div.pr-0.col-lg-3
+  > div
+  > a.NoTextDec
+  > div.px-3.py-3.top-left-direct-link:hover
+  #premiumTag {
+  color: blue;
+}
+
+/*Rules used repeatedly*/
+a.NoTextDec:hover {
+  text-decoration: none;
+}
+#premiumBox {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-image: linear-gradient(45deg, #e7a33e 50%, #f8c77e 50%);
 }
 
 .new-post {
