@@ -13,98 +13,104 @@ import { BsPencil } from "react-icons/bs";
 function EditPost({ post }) {
   const dispatch = useDispatch();
   const currentPost = useSelector((state) => state.posts.posts.currentPost);
+
   console.log("the current post is: ", currentPost);
 
-  //   const [show, setShow] = useState(false);
-  //   const [showEmoji, setShowEmoji] = useState(false);
-  //   const [postText, setPostText] = useState("");
+  const [show, setShow] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
+  const [postText, setPostText] = useState("");
+  const [wasUpdated, setwasUpdated] = useState(false);
+  const [wasDeleted, setwasDeleted] = useState(false);
 
-  //   console.log("we are currently posting: ", postText);
+  console.log("we are currently posting: ", postText);
 
-  //   const handleEmojiShow = () => {
-  //     if (showEmoji) {
-  //       setShowEmoji(false);
-  //     } else {
-  //       setShowEmoji(true);
-  //     }
-  //   };
+  const handleEmojiShow = () => {
+    if (showEmoji) {
+      setShowEmoji(false);
+    } else {
+      setShowEmoji(true);
+    }
+  };
 
-  //   const handlePostText = (e) => {
-  //     setPostText(e.target.value);
-  //   };
+  const handlePostText = (e) => {
+    setPostText(e.target.value);
+  };
 
-  // const getCurrentPost = async (e) => {
-  //     e.preventDefault()
-  //     console.log("we are getting the current post")
-  //     const options = {
-  //         method: "GET",
+  const handlePut = async (event) => {
+    event.preventDefault();
 
-  //         headers: {
-  //           "Content-type": "application/json",
-  //           Authorization:
-  //             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
-  //         },
-  //     };
-  //     const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/{postId}`;
+    console.log("We are editing posts here");
+    const postId = post._id;
+    const editedPost = {
+      text: postText,
+    };
 
-  //     try {
-  //         let response = await fetch(fetchURL, options);
-  //         console.log(response);
+    const options = {
+      method: "PUT",
+      body: JSON.stringify(editedPost),
+      headers: {
+        "Content-type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
+      },
+    };
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
 
-  //         if (response.ok) {
-  //           console.log("Post was successful");
-  //           const post = await response.json();
-  //           console.log("the post is: ", post);
-  //           dispatch(profilePostsListAction(post));
-  //         }
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  // }
+    try {
+      let response = await fetch(fetchURL, options);
+      console.log(response);
 
-  //   const handleSubmit = async (event) => {
-  //     event.preventDefault();
+      if (response.ok) {
+        console.log("Post was successful");
+        const updatedPost = await response.json();
+        console.log("the updated post is: ", updatedPost);
+        dispatch(getCurrentPostAction(updatedPost));
+        setwasUpdated(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    handleClose();
+  };
 
-  //     console.log("We are editing posts here");
+  const handleDelete = async (event) => {
+    event.preventDefault();
 
-  //     const post = {
-  //       text: postText,
-  //     };
+    console.log("we're deleting one post at a time");
+    const postId = post._id;
 
-  //     const options = {
-  //       method: "PUT",
-  //       body: JSON.stringify(post),
-  //       headers: {
-  //         "Content-type": "application/json",
-  //         Authorization:
-  //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
-  //       },
-  //     };
-  //     const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/`;
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
+      },
+    };
 
-  //     try {
-  //       let response = await fetch(fetchURL, options);
-  //       console.log(response);
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/${postId}`;
 
-  //       if (response.ok) {
-  //         console.log("Post was successful");
-  //         const post = await response.json();
-  //         console.log("the post is: ", post);
-  //         dispatch(profilePostsListAction(post));
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //     handleClose();
-  //   };
+    try {
+      let response = await fetch(fetchURL, options);
+      if (response.ok) {
+        console.log("Post deleted successfully");
+        const deletedPost = await response.json();
+        console.log("the deleted post is: ", deletedPost);
+        setwasDeleted(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    handleClose();
+  };
 
-  //   const handleClose = () => {
-  //     setShow(false);
-  //     setPostText("");
-  //   };
+  const handleClose = () => {
+    setShow(false);
+    // setPostText("");
+  };
   const handleShow = () => {
-    //setShow(true)
-    dispatch(getCurrentPostAction());
+    setShow(true);
+    // dispatch(getCurrentPostAction());
   };
 
   return (
@@ -113,7 +119,7 @@ function EditPost({ post }) {
         <BsPencil size={20} />
       </Button>
 
-      {/* <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create a Post</Modal.Title>
         </Modal.Header>
@@ -160,13 +166,28 @@ function EditPost({ post }) {
               <BsFillFileArrowUpFill className="ml-5 mr-2" />
               <FaEllipsisH className="ml-5 mr-2" />
             </div>
-            <Button type="Submit" variant="warning" onClick={handleSubmit}>
+            <Button type="Submit" variant="warning" onClick={handlePut}>
               Save
             </Button>
-            <Button type="Submit" variant="outline-danger" onClick={handleClose}>
+            <Button type="Submit" variant="outline-danger" onClick={handleDelete}>
               Delete
             </Button>
           </Row>
+        </Modal.Footer>
+      </Modal>
+
+      {/* <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
         </Modal.Footer>
       </Modal> */}
     </>

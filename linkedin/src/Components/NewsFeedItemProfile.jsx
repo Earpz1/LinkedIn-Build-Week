@@ -63,7 +63,7 @@ const NewsFeedItemProfile = ({ post }) => {
               <BiRepost /> Repost
             </a>
             <a href="#">
-              <IoIosSend /> Sendasdfds
+              <IoIosSend /> Send
             </a>
             <div>
               <EditPost post={post} />
