@@ -1,10 +1,11 @@
-import { Row, Form } from 'react-bootstrap'
+import { Row, Button } from 'react-bootstrap'
 import {
   FcStackOfPhotos,
   FcVideoCall,
   FcCalendar,
   FcKindle,
 } from 'react-icons/fc'
+import AddNewPost from './AddNewPost'
 
 const HomePageLeft = () => {
   return (
@@ -16,11 +17,7 @@ const HomePageLeft = () => {
               className="new-post-image"
               src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
             />
-            <Form>
-              <Form.Group className=" new-post-form">
-                <Form.Control type="email" placeholder="Start a post" />
-              </Form.Group>
-            </Form>
+            <AddNewPost />
           </div>
         </Row>
         <Row className="px-4 justify-content-between new-post-type">
