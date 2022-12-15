@@ -1,42 +1,48 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 
-import { fetchUsers, fetchProfile, currentUser, fetchExperiences, fetchPostsList } from "../redux/actions";
+import {
+  fetchUsers,
+  fetchProfile,
+  currentUser,
+  fetchExperiences,
+  fetchPostsList,
+} from '../redux/actions'
 
-import { Container, Row, Col } from "react-bootstrap";
-import HomePageLeft from "./HomePageLeft";
-import CreateNewPost from "./CreateNewPost";
-import HomePageRight from "./HomePageRight";
-import NewsFeedItem from "./NewsFeedItem";
-import { AiFillCaretDown } from "react-icons/ai";
-import ProfileRight from "./ProfileRight";
+import { Container, Row, Col } from 'react-bootstrap'
+import HomePageLeft from './HomePageLeft'
+import CreateNewPost from './CreateNewPost'
+import HomePageRight from './HomePageRight'
+import NewsFeedItem from './NewsFeedItem'
+import { AiFillCaretDown } from 'react-icons/ai'
+import ProfileRight from './ProfileRight'
 
-import LinkedInFooter from "./LinkedInFooter";
+import LinkedInFooter from './LinkedInFooter'
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const usersData = useSelector((state) => state.user.users);
-  const currentUserData = useSelector((state) => state.user.currentUser);
-  const usersLoaded = useSelector((state) => state.user.usersLoaded);
-  const contact = useSelector((state) => state.user.contact);
+  const dispatch = useDispatch()
+  const usersData = useSelector((state) => state.user.users)
+  const currentUserData = useSelector((state) => state.user.currentUser)
+  const usersLoaded = useSelector((state) => state.user.usersLoaded)
+  const contact = useSelector((state) => state.user.contact)
 
-  const postsList = useSelector((state) => state.posts.posts.postsList);
-  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
-  console.log("the posts are: ", postsList);
+  const postsList = useSelector((state) => state.posts.posts.postsList)
+  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded)
+  console.log('the posts are: ', postsList)
 
   //const profilePostsList = useSelector((state) => state.posts.posts.profilePosts.slice().reverse());
 
-  const profilePosts = useSelector((state) => state.posts.posts.profilePosts);
-  console.log("the posts are: ", postsList);
+  const profilePosts = useSelector((state) => state.posts.posts.profilePosts)
+  console.log('the posts are: ', postsList)
   //console.log("the profile posts are: ", profilePostsList);
   //console.log("the profile posts are: ", reverseProfilePostsList);
 
   useEffect(() => {
-    dispatch(fetchProfile());
-    dispatch(fetchUsers());
-    dispatch(fetchPostsList());
+    dispatch(fetchProfile())
+    dispatch(fetchUsers())
+    dispatch(fetchPostsList())
     // dispatch(fetchExperiences(currentUserData._id))
-  }, [usersLoaded, profilePosts]);
+  }, [usersLoaded, profilePosts])
 
   return (
     <>
@@ -52,7 +58,7 @@ const Home = () => {
                 <div className="d-flex align-items-center">
                   <hr className="mt-3" />
                   <span>
-                    Sort by: Top{" "}
+                    Sort by: Top{' '}
                     <a href="#">
                       <AiFillCaretDown />
                     </a>
@@ -75,7 +81,7 @@ const Home = () => {
         </Container>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
