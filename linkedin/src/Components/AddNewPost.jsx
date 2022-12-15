@@ -39,7 +39,6 @@ function AddNewPost() {
 
   const changeHandler = (event) => {
     setselectedFile(event.target.files[0])
-    console.log(selectedFile)
     setisFilePicked(true)
   }
 
@@ -131,7 +130,7 @@ function AddNewPost() {
             <Row>
               <img
                 className="news-post-profile-image ml-2"
-                src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+                src={currentUserData.image}
               />
               <div className="d-flex flex-column">
                 <p>

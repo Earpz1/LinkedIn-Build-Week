@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap");
 
 .App {
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 #root {
   background-color: #f3f2ef;
@@ -414,11 +414,91 @@ NEW SYLING FOR TopNav - search & deleteButton
   transform: scale(1.1);
 }
 
+/*home- left feed*/
+
 .left-feed-box {
   background-color: white;
-  padding: 1em;
   border-radius: 10px;
   box-shadow: #c6c5c3 0px 0px 5px;
+  overflow: hidden;
+}
+#top-left-home {
+  position: relative;
+}
+#top-left-home-backgroundImage {
+  background-image: url(https://farm5.staticflickr.com/4902/44891418625_2056c2bf9f_o.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80px;
+}
+#top-left-home-userprofile-pic {
+  position: absolute;
+  top: 40px;
+  left: 99px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid white 2pt;
+}
+#top-left-home-bottom {
+  padding-top: 3.5em;
+}
+.top-left-line-breaks {
+  border-bottom: 1px #c6c5c3 solid;
+}
+
+.top-left-link-boxes svg {
+  color: black;
+}
+
+.top-left-link-boxes > a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  font-size: 10pt;
+}
+.top-left-link-boxes > a:hover {
+  text-decoration: none;
+  color: gray;
+}
+.top-left-link-boxes {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.top-left-link-boxes:hover {
+  background-color: lightgray;
+}
+.top-left-direct-link:hover {
+  background-color: lightgray;
+}
+
+#premiumTag {
+  color: black;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+
+#root
+  > div.container
+  > div
+  > div.pr-0.col-lg-3
+  > div
+  > a.NoTextDec
+  > div.px-3.py-3.top-left-direct-link:hover
+  #premiumTag {
+  color: blue;
+}
+
+/*Rules used repeatedly*/
+a.NoTextDec:hover {
+  text-decoration: none;
+}
+#premiumBox {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-image: linear-gradient(45deg, #e7a33e 50%, #f8c77e 50%);
 }
 
 .new-post {
@@ -459,9 +539,11 @@ span {
 }
 
 .new-post-image {
-  width: 75px;
-  height: 75px;
-  margin-top: -14px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .new-post-form {
@@ -481,10 +563,10 @@ span {
 }
 
 .news-post-profile-image {
-  width: 75px;
-  height: 75px;
-  margin-top: -10px;
-  margin-left: -14px;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  border-radius: 50%;
 }
 
 .bottom-post-divider {

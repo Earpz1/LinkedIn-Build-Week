@@ -6,17 +6,16 @@ import {
   FcKindle,
 } from 'react-icons/fc'
 import AddNewPost from './AddNewPost'
+import { useSelector } from 'react-redux'
 
 const HomePageLeft = () => {
+  const currentUserData = useSelector((state) => state.user.currentUser)
   return (
     <>
       <div className="new-post">
         <Row>
           <div className="d-flex">
-            <img
-              className="new-post-image"
-              src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
-            />
+            <img className="new-post-image" src={currentUserData.image} />
             <AddNewPost />
           </div>
         </Row>
