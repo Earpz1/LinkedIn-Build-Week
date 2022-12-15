@@ -125,7 +125,6 @@ function AddNewPost() {
         <Modal.Footer>
           <Row className="w-100 justify-content-between">
             <div className="footer-icons-new-post">
-              <ImageUpload />
               <BsFillImageFill className="ml-3 mr-2" />
               <BsCameraVideoFill className="ml-5 mr-2" />
               <BsFillFileArrowUpFill className="ml-5 mr-2" />
