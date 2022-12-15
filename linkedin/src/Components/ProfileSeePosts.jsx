@@ -1,13 +1,15 @@
-import { Button, Collapse } from "react-bootstrap";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import NewsFeedItem from "./NewsFeedItem";
+import { Button, Collapse } from 'react-bootstrap'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import NewsFeedItem from './NewsFeedItem'
 const ProfileSeePosts = () => {
-  const [seePosts, setSeePosts] = useState(false);
+  const [seePosts, setSeePosts] = useState(false)
   //const usersData = useSelector((state) => state.user.currentUser);
-  const profilePostsList = useSelector((state) => state.posts.posts.profilePosts.slice().reverse());
+  const profilePostsList = useSelector((state) =>
+    state.posts.posts.profilePosts.slice().reverse(),
+  )
 
-  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
+  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded)
 
   return (
     <>
@@ -41,6 +43,6 @@ const ProfileSeePosts = () => {
           ))}
       </ul>*/}
     </>
-  );
-};
-export default ProfileSeePosts;
+  )
+}
+export default ProfileSeePosts

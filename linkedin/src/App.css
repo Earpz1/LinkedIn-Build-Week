@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap');
 
 .App {
   text-align: center;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 #root {
   background-color: #f3f2ef;
@@ -587,4 +587,9 @@ footer #footerLogo {
 
 #footerLangSelector:hover {
   box-shadow: inset 0 0 0 2px;
+}
+
+.upload-post-image:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
