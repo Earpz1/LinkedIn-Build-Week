@@ -414,11 +414,61 @@ NEW SYLING FOR TopNav - search & deleteButton
   transform: scale(1.1);
 }
 
+/*home- left feed*/
+
 .left-feed-box {
   background-color: white;
-  padding: 1em;
   border-radius: 10px;
   box-shadow: #c6c5c3 0px 0px 5px;
+  overflow: hidden;
+}
+#top-left-home {
+  position: relative;
+}
+#top-left-home-backgroundImage {
+  background-image: url(https://farm5.staticflickr.com/4902/44891418625_2056c2bf9f_o.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80px;
+}
+#top-left-home-userprofile-pic {
+  position: absolute;
+  top: 40px;
+  left: 99px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid white 2pt;
+}
+#top-left-home-bottom {
+  padding-top: 3.5em;
+  padding-bottom: 1em;
+}
+.top-left-line-breaks {
+  border-bottom: 1px #c6c5c3 solid;
+}
+
+.top-left-link-boxes svg {
+  color: black;
+}
+
+.top-left-link-boxes > a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  font-size: 10pt;
+}
+.top-left-link-boxes > a:hover {
+  text-decoration: none;
+  color: gray;
+}
+.top-left-link-boxes {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.top-left-link-boxes:hover {
+  background-color: lightgray;
 }
 
 .new-post {
