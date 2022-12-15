@@ -21,6 +21,7 @@ const Home = () => {
   //const profilePostsList = useSelector((state) => state.posts.posts.profilePosts.slice().reverse());
 
   const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
+  const profilePosts = useSelector((state) => state.posts.posts.profilePosts);
   console.log("the posts are: ", postsList);
   //console.log("the profile posts are: ", profilePostsList);
   //console.log("the profile posts are: ", reverseProfilePostsList);
@@ -30,7 +31,7 @@ const Home = () => {
     dispatch(fetchUsers());
     dispatch(fetchPostsList());
     // dispatch(fetchExperiences(currentUserData._id))
-  }, [usersLoaded]);
+  }, [usersLoaded, profilePosts]);
 
   return (
     <>
