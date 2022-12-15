@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { editUser, fetchProfile, fetchExperiences } from '../redux/actions'
 import { BsPlus } from 'react-icons/bs'
+import axios from 'axios'
 
 function AddExperienceModal() {
   const dispatch = useDispatch()
@@ -15,6 +16,13 @@ function AddExperienceModal() {
   const [enddate, setenddate] = useState('')
   const [description, setdescription] = useState('')
   const [area, setarea] = useState('')
+  const [selectedFile, setselectedFile] = useState()
+  const [isFilePicked, setisFilePicked] = useState(false)
+
+  const changeFileHandler = (event) => {
+    setselectedFile(event.target.files[0])
+    setisFilePicked(true)
+  }
 
   const handleRole = (event) => {
     setrole(event.target.value)
@@ -77,6 +85,23 @@ function AddExperienceModal() {
       if (response.ok) {
         console.log('Edit was successful')
         let experienceData = await response.json()
+
+        if (isFilePicked) {
+          const url = `https://striveschool-api.herokuapp.com/api/profile/${usersData._id}/experiences/${experienceData._id}/picture`
+          const formData = new FormData()
+          formData.append('experience', selectedFile)
+          const config = {
+            headers: {
+              'content-Type': 'multipart/form-data',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
+            },
+          }
+          axios.post(url, formData, config).then((response) => {
+            console.log(response.data)
+          })
+        }
+
         console.log(experienceData)
         dispatch(fetchExperiences(usersData._id))
       }
@@ -128,6 +153,10 @@ function AddExperienceModal() {
               value={description}
               onChange={handledescription}
             />
+            <br />
+            <Form.Label>Company Logo</Form.Label>
+            <Form.Control type="file" onChange={changeFileHandler} />
+            <br />
             <Form.Label>Area</Form.Label>
             <Form.Control type="text" value={area} onChange={handlearea} />
           </Form>

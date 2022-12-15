@@ -5,10 +5,13 @@ import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
 import EditExperienceModal from './EditExperienceModal'
 import AddExperience from './AddExperience'
+import { useState } from 'react'
 
 const ExperienceItem = ({ data }) => {
+  const [hasImage, sethasImage] = useState(data.image)
   const me = useSelector((state) => state.user.currentUser)
   const meId = me._id
+
   return (
     <div id="profileContainer">
       <div id="lowerProfileCardExperience">
@@ -27,12 +30,13 @@ const ExperienceItem = ({ data }) => {
           <>
             <div className="d-flex">
               <div className="companylogo">
-                {' '}
-                <img
-                  src="https://www.pngitem.com/pimgs/m/189-1895934_i-clipart-building-clipart-of-a-building-hd.png"
-                  alt="company logo"
-                  className="img-fluid"
-                />
+                {hasImage && (
+                  <img
+                    src={data.image}
+                    alt="company logo"
+                    className="img-fluid"
+                  />
+                )}
               </div>
               <div className="pl-2">
                 <p>
