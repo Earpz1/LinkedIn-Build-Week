@@ -8,6 +8,7 @@ import { IoIosSend } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
+
 const NewsFeedItem = ({ post }) => {
   const likes = Math.floor(Math.random() * 200)
 
@@ -27,8 +28,10 @@ const NewsFeedItem = ({ post }) => {
   return (
     <>
       <div className="news-feed-post mt-3 d-flex justify-content-evenly">
-        <Row>
-          <Link>
+
+        <Row className="d-flex">
+          <Link to={"/profile"}>
+
             <img
               className="news-post-profile-image ml-2"
               src={post.user.image}
@@ -41,12 +44,11 @@ const NewsFeedItem = ({ post }) => {
                 <strong>
                   {post.user.name} {post.user.surname}
                 </strong>
-              </small>{' '}
+              </small>{" "}
               <BsDot className="mt-1" /> <small>3rd+</small>
             </div>
             <div className="d-flex">
-              <small>{post.user.title}</small> <BsDash className="mt-1" />{' '}
-              <small>{post.user.email}</small>
+              <small>{post.user.title}</small> <BsDash className="mt-1" /> <small>{post.user.email}</small>
             </div>
           </div>
           <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
@@ -80,7 +82,7 @@ const NewsFeedItem = ({ post }) => {
         </Row>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NewsFeedItem
+export default NewsFeedItem;

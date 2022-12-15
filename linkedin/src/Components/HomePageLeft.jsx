@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { IoMdPersonAdd } from "react-icons/io";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const HomePageLeft = () => {
@@ -39,8 +40,40 @@ const HomePageLeft = () => {
               </div>
             </Link>
           </div>
-          <div className="top-left-line-breaks my-2"></div>
         </div>
+        <Link className="NoTextDec">
+          <div className="top-left-line-breaks mb-0 mt-2 "></div>
+          <div className="px-3 py-3 top-left-direct-link">
+            <div>
+              <p
+                className="m-0"
+                style={{ color: "gray", fontSize: "10pt", width: "175px" }}
+              >
+                Access exclusive tools & insights
+              </p>
+            </div>
+            <div className="d-flex">
+              <div className="d-flex align-items-center mr-2">
+                <div id="premiumBox"></div>
+              </div>
+              <div id="premiumTag">Try Premium for free</div>
+            </div>
+          </div>
+        </Link>
+        <Link style={{ textDecoration: "none" }}>
+          <div className="top-left-line-breaks my-0 "></div>
+          <div className="d-flex px-3 py-3 top-left-direct-link">
+            <div
+              className="d-flex align-items-center"
+              style={{ color: "#5E5E5E" }}
+            >
+              <BsFillBookmarkFill />
+            </div>
+            <p className="m-0 pl-2" style={{ color: "black" }}>
+              My items
+            </p>
+          </div>
+        </Link>
       </div>
     </>
   );
