@@ -1,13 +1,22 @@
-import { Modal, Button, Row, Container, Form } from "react-bootstrap";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { editUser, fetchProfile, fetchExperiences } from "../redux/actions";
-import { BsPlus, BsEmojiSmile, BsFillImageFill, BsCameraVideoFill, BsFillFileArrowUpFill } from "react-icons/bs";
-import { IoEarth } from "react-icons/io5";
-import { AiFillCaretDown } from "react-icons/ai";
-import { FaEllipsisH } from "react-icons/fa";
-import EmojiPicker from "emoji-picker-react";
+
+import { Modal, Button, Row, Container, Form } from 'react-bootstrap'
+import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { editUser, fetchProfile, fetchExperiences } from '../redux/actions'
+import {
+  BsPlus,
+  BsEmojiSmile,
+  BsFillImageFill,
+  BsCameraVideoFill,
+  BsFillFileArrowUpFill,
+} from 'react-icons/bs'
+import { IoEarth } from 'react-icons/io5'
+import { AiFillCaretDown } from 'react-icons/ai'
+import { FaEllipsisH } from 'react-icons/fa'
+import EmojiPicker from 'emoji-picker-react'
+import ImageUpload from './ImageUpload'
 import { profilePostsListAction } from "../redux/actions";
+
 
 function AddNewPost() {
   const dispatch = useDispatch();
