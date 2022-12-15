@@ -1,7 +1,9 @@
-import { Button, Collapse } from 'react-bootstrap'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
-import NewsFeedItem from './NewsFeedItem'
+import { Button, Collapse } from "react-bootstrap";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import NewsFeedItemProfile from "./NewsFeedItemProfile";
+
+
 const ProfileSeePosts = () => {
   const [seePosts, setSeePosts] = useState(false)
   //const usersData = useSelector((state) => state.user.currentUser);
@@ -27,21 +29,11 @@ const ProfileSeePosts = () => {
           {postsLoaded &&
             profilePostsList.map((post) => (
               <li key={post._id} className="formListItems line-clamp">
-                <NewsFeedItem post={post} />
+                <NewsFeedItemProfile post={post} />
               </li>
             ))}
         </div>
       </Collapse>
-
-      {/* <Button variant="outline-dark">See all posts</Button> 
-      <ul id="experienceList">
-        {postsLoaded &&
-          profilePostsList.map((post) => (
-            <li key={post._id} className="formListItems line-clamp">
-              <NewsFeedItem post={post} />
-            </li>
-          ))}
-      </ul>*/}
     </>
   )
 }
