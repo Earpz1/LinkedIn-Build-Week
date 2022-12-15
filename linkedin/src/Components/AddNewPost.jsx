@@ -17,6 +17,12 @@ import EmojiPicker from 'emoji-picker-react'
 function AddNewPost() {
   const [show, setShow] = useState(false)
   const [showEmoji, setShowEmoji] = useState(false)
+  const [emoji, setemoji] = useState(null)
+  const [postContent, setpostContent] = useState('')
+
+  const onEmojiClick = (emojiObject) => {
+    setpostContent(postContent + emojiObject.emoji)
+  }
 
   const handleEmojiShow = () => {
     if (showEmoji) {
@@ -26,10 +32,11 @@ function AddNewPost() {
     }
   }
 
+  const handlePostContent = (event) => {
+    setpostContent(event.target.value)
+  }
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    console.log('We are editing users here')
 
     const options = {
       method: 'POST',
@@ -44,7 +51,6 @@ function AddNewPost() {
 
     try {
       let response = await fetch(fetchURL, options)
-      console.log(response)
       if (response.ok) {
         console.log('Edit was successful')
       }
@@ -94,7 +100,9 @@ function AddNewPost() {
                   as="textarea"
                   rows={5}
                   cols={100}
-                  placeholder="What do you want to talk about?"
+                  value={postContent}
+                  placeholder="What would you like to post?"
+                  onChange={handlePostContent}
                 />
               </Form.Group>
               <BsEmojiSmile
@@ -106,6 +114,7 @@ function AddNewPost() {
                   searchDisabled="true"
                   skinTonesDisabled="true"
                   showPreview="false"
+                  onEmojiClick={onEmojiClick}
                 />
               )}
             </Row>
