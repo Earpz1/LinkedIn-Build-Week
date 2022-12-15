@@ -1,15 +1,25 @@
-import { GET_CURRENT_POST, GET_POSTS_LIST, POSTS_LOADED } from '../actions'
+import { GET_CURRENT_POST, GET_POSTS_LIST, POSTS_LOADED, PROFILE_POSTS_LIST } from "../actions";
 
 const initialState = {
   posts: {
     postsList: [],
     currentPost: null,
     postsLoaded: false,
+    profilePosts: [],
   },
-}
+};
 
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case PROFILE_POSTS_LIST:
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          profilePosts: [...state.posts.profilePosts, action.payload],
+        },
+      };
+
     case GET_POSTS_LIST:
       return {
         ...state,
@@ -17,7 +27,7 @@ const postsReducer = (state = initialState, action) => {
           ...state.posts,
           postsList: [action.payload],
         },
-      }
+      };
 
     case GET_CURRENT_POST:
       return {
@@ -26,7 +36,7 @@ const postsReducer = (state = initialState, action) => {
           ...state.posts,
           currentPost: action.payload,
         },
-      }
+      };
 
     case POSTS_LOADED:
       return {
@@ -35,11 +45,11 @@ const postsReducer = (state = initialState, action) => {
           ...state.posts,
           postsLoaded: action.payload,
         },
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default postsReducer
+export default postsReducer;
