@@ -10,6 +10,7 @@ import EmojiPicker from "emoji-picker-react";
 import { profilePostsListAction } from "../redux/actions";
 
 function AddNewPost() {
+
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
@@ -30,14 +31,19 @@ function AddNewPost() {
     setPostText(e.target.value);
   };
 
+  const handlePostContent = (event) => {
+    setpostContent(event.target.value)
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     console.log("We are posting here");
 
+
     const post = {
       text: postText,
     };
+
 
     const options = {
       method: "POST",
@@ -51,8 +57,10 @@ function AddNewPost() {
     const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/`;
 
     try {
+
       let response = await fetch(fetchURL, options);
       console.log(response);
+
       if (response.ok) {
         console.log("Post was successful");
         const post = await response.json();
@@ -106,10 +114,13 @@ function AddNewPost() {
                   as="textarea"
                   rows={5}
                   cols={100}
-                  placeholder="What do you want to talk about?"
+                  value={postContent}
+                  placeholder="What would you like to post?"
+                  onChange={handlePostContent}
                 />
               </Form.Group>
-              <BsEmojiSmile onClick={handleEmojiShow} className="emoji-picker" />
+
+            <BsEmojiSmile onClick={handleEmojiShow} className="emoji-picker" />
               {showEmoji && <EmojiPicker searchDisabled="true" skinTonesDisabled="true" showPreview="false" />}
             </Row>
           </Container>

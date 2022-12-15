@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+
 import { fetchUsers, fetchProfile, currentUser, fetchExperiences, fetchPostsList } from "../redux/actions";
+
 import { Container, Row, Col } from "react-bootstrap";
 import HomePageLeft from "./HomePageLeft";
 import CreateNewPost from "./CreateNewPost";
@@ -9,12 +11,20 @@ import NewsFeedItem from "./NewsFeedItem";
 import { AiFillCaretDown } from "react-icons/ai";
 import ProfileRight from "./ProfileRight";
 
+import LinkedInFooter from "./LinkedInFooter";
+
+
 const Home = () => {
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.user.users);
   const currentUserData = useSelector((state) => state.user.currentUser);
   const usersLoaded = useSelector((state) => state.user.usersLoaded);
   const contact = useSelector((state) => state.user.contact);
+
+  const postsList = useSelector((state) => state.posts.posts.postsList);
+  const postsLoaded = useSelector((state) => state.posts.posts.postsLoaded);
+  console.log("the posts are: ", postsList);
+
 
   const postsList = useSelector((state) => state.posts.posts.postsList);
 
