@@ -55,7 +55,7 @@ const Home = () => {
                 {postsLoaded &&
                   postsList[0].length > 0 &&
                   postsList[0]
-                    .slice(postsList[0].length - 15)
+                    .slice(postsList[0].length - 5)
                     .reverse()
                     .map((post) => <NewsFeedItem key={post._id} post={post} />)}
                 {/* {postsLoaded && profilePostsList.map((post) => <NewsFeedItem key={post._id} post={post} />)} */}

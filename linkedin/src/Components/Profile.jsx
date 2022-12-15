@@ -1,19 +1,20 @@
-import { Col, Container, Row } from 'react-bootstrap'
-import ProfileHeader from './ProfileHeader'
-import ProfileRight from './ProfileRight'
-import EditExperienceModal from './EditExperienceModal'
-import AddExperienceModal from './AddExperience'
-import Experience from './Experience'
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchExperiences } from '../redux/actions'
+import { Col, Container, Row } from "react-bootstrap";
+import ProfileHeader from "./ProfileHeader";
+import ProfileRight from "./ProfileRight";
+import EditExperienceModal from "./EditExperienceModal";
+import AddExperienceModal from "./AddExperience";
+import Experience from "./Experience";
+import ProfileSeePosts from "./ProfileSeePosts";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchExperiences } from "../redux/actions";
 const Profile = () => {
-  const dispatch = useDispatch()
-  const currentUserData = useSelector((state) => state.user.currentUser)
-  const usersLoaded = useSelector((state) => state.user.usersLoaded)
+  const dispatch = useDispatch();
+  const currentUserData = useSelector((state) => state.user.currentUser);
+  const usersLoaded = useSelector((state) => state.user.usersLoaded);
 
   if (usersLoaded) {
-    dispatch(fetchExperiences(currentUserData._id))
+    dispatch(fetchExperiences(currentUserData._id));
   }
 
   return (
@@ -22,6 +23,7 @@ const Profile = () => {
         <div className=" d-flex justify-content-between">
           <div>
             <ProfileHeader />
+            <ProfileSeePosts />
             <Experience />
           </div>
           <Col>
@@ -30,7 +32,7 @@ const Profile = () => {
         </div>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
