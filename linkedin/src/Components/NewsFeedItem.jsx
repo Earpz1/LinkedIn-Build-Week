@@ -6,8 +6,24 @@ import { FaRegCommentDots } from 'react-icons/fa'
 import { BiRepost } from 'react-icons/bi'
 import { IoIosSend } from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const NewsFeedItem = ({ post }) => {
+  const likes = Math.floor(Math.random() * 200)
+
+  const [Likes, setLikes] = useState(likes)
+  const [liked, setliked] = useState(false)
+
+  const handleLikes = () => {
+    if (liked) {
+      setLikes(Likes - 1)
+      setliked(false)
+    } else {
+      setLikes(Likes + 1)
+      setliked(true)
+    }
+  }
+
   return (
     <>
       <div className="news-feed-post mt-3 d-flex justify-content-evenly">
@@ -38,7 +54,7 @@ const NewsFeedItem = ({ post }) => {
           <div className="d-flex mt-2 ml-2 justify-content-between w-100">
             <div>
               <FcLike /> <AiFillLike />
-              <small>42</small>
+              <small>{Likes}</small>
             </div>
             <div>
               <a href="#" className="commentLink">
@@ -48,8 +64,8 @@ const NewsFeedItem = ({ post }) => {
           </div>
           <hr className="bottom-post-divider" />
           <div className="post-action-buttons d-flex justify-content-between w-100 mx-3">
-            <a href="#">
-              <AiOutlineLike /> Like
+            <a href="#" onClick={handleLikes}>
+              {liked ? <AiFillLike /> : <AiOutlineLike />} Like
             </a>
             <a href="#">
               <FaRegCommentDots /> Comment
