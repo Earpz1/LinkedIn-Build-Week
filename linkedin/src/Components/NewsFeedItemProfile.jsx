@@ -16,13 +16,14 @@ const NewsFeedItemProfile = ({ post }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   return (
     <>
-      <div className="news-feed-post mt-3 d-flex justify-content-evenly">
+      <div className="news-feed-post d-flex justify-content-evenly mb-2 pb-0">
         <Row className="d-flex">
           {/* <Link to={"#"} onClick={() => dispatch(getCurrentPostAction)}> */}
           <img
             className="news-post-profile-image ml-2"
             src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
           />
+
           {/* </Link> */}
           <div className="d-flex flex-column">
             <div className="d-flex">
@@ -34,11 +35,23 @@ const NewsFeedItemProfile = ({ post }) => {
               <BsDot className="mt-1" /> <small>3rd+</small>
             </div>
             <div className="d-flex">
-              <small>{post.user.title}</small> <BsDash className="mt-1" /> <small>{post.user.email}</small>
+              <small>{post.user.title}</small> <BsDash className="mt-1" />{" "}
+              <small>{post.user.email}</small>
             </div>
           </div>
-          <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
-          <img className="mt-3" src="https://picsum.photos/505/300" />
+          <div
+            className="d-flex flex-column"
+            style={{ paddingLeft: ".5em", paddingRight: ".5em" }}
+          >
+            {post.text}
+          </div>
+          <div style={{ width: "100%" }}>
+            <img
+              className="mb-3 img-fluid"
+              src="https://picsum.photos/505/300"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
           <div className="d-flex mt-2 ml-2 justify-content-between w-100">
             <div>
               <FcLike /> <AiFillLike />

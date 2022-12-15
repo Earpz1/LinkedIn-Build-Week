@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchExperiences } from "../redux/actions";
 
 import LinkedInFooter from "./LinkedInFooter";
+import Analytics from "./Analytics";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Profile = () => {
           <div>
             <ProfileHeader />
             <ProfileSeePosts />
+            <Analytics />
             <Experience />
           </div>
           <Col>

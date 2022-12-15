@@ -100,6 +100,23 @@
   background-color: white;
   padding: 1em 1em 0em 1em;
 }
+
+#analyticsContainer {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
+}
+#analyticsContainer p {
+  font-weight: 300;
+  color: gray;
+  padding-left: 0.5em;
+  margin: 0;
+  width: 140px;
+}
+#analyticsContainer svg {
+  color: gray;
+}
+
 /*Experience*/
 .companylogo {
   width: 60px;
