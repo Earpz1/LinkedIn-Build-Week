@@ -570,8 +570,7 @@ footer #footerLogo {
 .footerLinks a:hover {
   color: blue;
 }
-.footerBoldText {
-  color: #5e5e5e;
+.m-0.footerBoldText {
   font-weight: 600;
 }
 
@@ -587,4 +586,18 @@ footer #footerLogo {
 
 #footerLangSelector:hover {
   box-shadow: inset 0 0 0 2px;
+}
+
+.altFooterLinks a {
+  color: #5e5e5e;
+  font-size: 10pt;
+}
+
+.altFooterLinks .altFooterLinkItems {
+  padding: 0;
+  text-align: center;
+}
+
+#littleLogo {
+  color: #0a66c2;
 }

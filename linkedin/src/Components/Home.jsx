@@ -69,6 +69,7 @@ const Home = () => {
             </Col>
             <Col lg={3} className="px-0">
               <ProfileRight />
+              <LinkedInFooter />
             </Col>
           </Row>
         </Container>
