@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useSelector } from 'react'
 import { Button, ResponsiveEmbed } from 'react-bootstrap'
 import axios from 'axios'
+import { BsFillImageFill } from 'react-icons/bs'
 
 const ImageUpload = () => {
   const [selectedFile, setselectedFile] = useState()
@@ -32,13 +33,14 @@ const ImageUpload = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={changeHandler} />
-
-        <Button type="submit" variant="primary">
-          Submit
-        </Button>
-      </form>
+      <label for="actual-btn">
+        <BsFillImageFill
+          className="ml-3 mr-2 upload-post-image"
+          onChange={changeHandler}
+        />
+      </label>
+      <input id="actual-btn" type="file" onChange={changeHandler} hidden />
+      {isFilePicked && <span>{selectedFile.name}</span>}
     </>
   )
 }
