@@ -39,7 +39,6 @@ function AddNewPost() {
 
   const changeHandler = (event) => {
     setselectedFile(event.target.files[0])
-    console.log(selectedFile)
     setisFilePicked(true)
   }
 
