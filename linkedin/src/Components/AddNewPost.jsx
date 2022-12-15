@@ -1,3 +1,4 @@
+
 import { Modal, Button, Row, Container, Form } from 'react-bootstrap'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,63 +15,75 @@ import { AiFillCaretDown } from 'react-icons/ai'
 import { FaEllipsisH } from 'react-icons/fa'
 import EmojiPicker from 'emoji-picker-react'
 import ImageUpload from './ImageUpload'
+import { profilePostsListAction } from "../redux/actions";
+
 
 function AddNewPost() {
-  const [show, setShow] = useState(false)
-  const [showEmoji, setShowEmoji] = useState(false)
-  const [emoji, setemoji] = useState(null)
-  const [postContent, setpostContent] = useState('')
+  const dispatch = useDispatch();
 
-  const onEmojiClick = (emojiObject) => {
-    setpostContent(postContent + emojiObject.emoji)
-  }
+  const [show, setShow] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
+  const [postText, setPostText] = useState("");
+
+  console.log("we are currently posting: ", postText);
 
   const handleEmojiShow = () => {
     if (showEmoji) {
-      setShowEmoji(false)
+      setShowEmoji(false);
     } else {
-      setShowEmoji(true)
+      setShowEmoji(true);
     }
-  }
+  };
 
-  const handlePostContent = (event) => {
-    setpostContent(event.target.value)
-  }
+  const handlePostText = (e) => {
+    setPostText(e.target.value);
+  };
+
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
+
+    console.log("We are posting here");
+
+    const post = {
+      text: postText,
+    };
 
     const options = {
-      method: 'POST',
-      body: JSON.stringify(),
+      method: "POST",
+      body: JSON.stringify(post),
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs",
       },
-    }
-    const fetchURL = `https://striveschool-api.herokuapp.com/api/profile/experiences`
+    };
+    const fetchURL = `https://striveschool-api.herokuapp.com/api/posts/`;
 
     try {
-      let response = await fetch(fetchURL, options)
+      let response = await fetch(fetchURL, options);
+      console.log(response);
+
       if (response.ok) {
-        console.log('Edit was successful')
+        console.log("Post was successful");
+        const post = await response.json();
+        console.log("the post is: ", post);
+        dispatch(profilePostsListAction(post));
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    handleClose()
-  }
+    handleClose();
+  };
 
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const handleClose = () => {
+    setShow(false);
+    setPostText("");
+  };
+  const handleShow = () => setShow(true);
 
   return (
     <>
-      <Button
-        variant="none"
-        className="new-post-button text-left"
-        onClick={handleShow}
-      >
+      <Button variant="none" className="new-post-button text-left" onClick={handleShow}>
         Start a post
       </Button>
 
@@ -97,27 +110,18 @@ function AddNewPost() {
               </div>
               <Form.Group className="mt-3">
                 <Form.Control
+                  value={postText}
+                  onChange={handlePostText}
                   className="new-post-textarea"
                   as="textarea"
                   rows={5}
                   cols={100}
-                  value={postContent}
                   placeholder="What would you like to post?"
-                  onChange={handlePostContent}
                 />
               </Form.Group>
-              <BsEmojiSmile
-                onClick={handleEmojiShow}
-                className="emoji-picker"
-              />
-              {showEmoji && (
-                <EmojiPicker
-                  searchDisabled="true"
-                  skinTonesDisabled="true"
-                  showPreview="false"
-                  onEmojiClick={onEmojiClick}
-                />
-              )}
+
+              <BsEmojiSmile onClick={handleEmojiShow} className="emoji-picker" />
+              {showEmoji && <EmojiPicker searchDisabled="true" skinTonesDisabled="true" showPreview="false" />}
             </Row>
           </Container>
         </Modal.Body>
@@ -137,7 +141,7 @@ function AddNewPost() {
         </Modal.Footer>
       </Modal>
     </>
-  )
+  );
 }
 
-export default AddNewPost
+export default AddNewPost;
