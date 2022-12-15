@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { editUser, fetchProfile } from '../redux/actions'
 import { BsPencil } from 'react-icons/bs'
+import axios from 'axios'
 
 function EditModal({ data }) {
   const dispatch = useDispatch()
@@ -15,6 +16,13 @@ function EditModal({ data }) {
   const [title, settitle] = useState(usersData.title)
   const [bio, setbio] = useState(usersData.bio)
   const [area, setarea] = useState(usersData.area)
+  const [selectedFile, setselectedFile] = useState()
+  const [isFilePicked, setisFilePicked] = useState(false)
+
+  const changeFileHandler = (event) => {
+    setselectedFile(event.target.files[0])
+    setisFilePicked(true)
+  }
 
   const handleEditName = (event) => {
     setname(event.target.value)
@@ -79,6 +87,24 @@ function EditModal({ data }) {
       if (response.ok) {
         console.log('Edit was successful')
         let usersData = await response.json()
+
+        if (isFilePicked) {
+          const url = `https://striveschool-api.herokuapp.com/api/profile/${usersData._id}/picture`
+          const formData = new FormData()
+          formData.append('profile', selectedFile)
+          const config = {
+            method: 'POST',
+            headers: {
+              'content-Type': 'multipart/form-data',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjBhOWM5NmRmYjAwMTUyMWE1YmMiLCJpYXQiOjE2NzA4MzYzOTMsImV4cCI6MTY3MjA0NTk5M30.tjYtW0usDncqSVyv5tqHhm6jzx297N87wMwUmb9BuAs',
+            },
+          }
+          axios.post(url, formData, config).then((response) => {
+            console.log(response.data)
+          })
+        }
+
         console.log(usersData)
         dispatch(fetchProfile())
       }
@@ -126,6 +152,10 @@ function EditModal({ data }) {
             />
             <Form.Label>Bio</Form.Label>
             <Form.Control type="text" value={bio} onChange={handleEditBio} />
+            <br />
+            <Form.Label>Profile Image</Form.Label>
+            <Form.Control type="file" onChange={changeFileHandler} />
+            <br />
             <Form.Label>Area</Form.Label>
             <Form.Control type="text" value={area} onChange={handleEditArea} />
           </Form>
