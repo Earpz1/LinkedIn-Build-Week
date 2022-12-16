@@ -39,10 +39,10 @@ const RightSideUser = ({ user }) => {
               />
             </div>
             <div style={{ width: "150px" }}>
-              <span>
+              <span style={{ fontSize: "11pt", fontWeight: "500" }}>
                 {user.name} {user.surname}
               </span>
-              <p>
+              <p style={{ fontSize: "10pt", fontWeight: "300", color: "gray" }}>
                 <small className="line-clamp">{user.bio}</small>
               </p>
               <div className="mb-2">

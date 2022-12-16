@@ -32,7 +32,7 @@ const Profile = () => {
             <Analytics />
             <Experience />
           </div>
-          <Col>
+          <Col xl={3}>
             <ProfileRight />
           </Col>
         </div>

@@ -24,7 +24,7 @@ const ProfileSeePosts = () => {
       >
         See all posts
       </Button>
-      <Collapse in={seePosts}>
+      <Collapse in={seePosts} className="mr-0">
         <div id="example-collapse-text">
           {/* {postsLoaded &&
             profilePostsList.map((post) => (
@@ -39,7 +39,9 @@ const ProfileSeePosts = () => {
 
               .reverse()
               // .filter((post) => post.user === usersData._id)
-              .map((post) => <NewsFeedItemProfile key={post._id} post={post} />)}
+              .map((post) => (
+                <NewsFeedItemProfile key={post._id} post={post} />
+              ))}
         </div>
       </Collapse>
     </>
