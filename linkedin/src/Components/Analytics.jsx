@@ -1,9 +1,9 @@
-import { BsFillEyeFill } from "react-icons/bs";
-import { MdPeopleAlt } from "react-icons/md";
+import { BsFillEyeFill } from 'react-icons/bs'
+import { MdPeopleAlt } from 'react-icons/md'
 
 const Analytics = () => {
   return (
-    <div id="analyticsContainer">
+    <div id="analyticsContainer" className="mt-3 mb-3">
       <div>
         <h3>Analytics</h3>
         <div className="d-flex">
@@ -18,14 +18,14 @@ const Analytics = () => {
           <MdPeopleAlt size={20} />
         </div>
         <div>
-          <h6 style={{ paddingLeft: ".5em", margin: "0" }}>
+          <h6 style={{ paddingLeft: '.5em', margin: '0' }}>
             100 profile views
           </h6>
           <p>Update your profile to attract viewers</p>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Analytics;
+export default Analytics
