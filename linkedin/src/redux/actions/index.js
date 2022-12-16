@@ -112,7 +112,7 @@ export const fetchUsers = () => {
         console.log('Fetch Successful')
         let usersData = await response.json()
         console.log(usersData)
-        dispatch(userSelectedAction(usersData))
+        dispatch(userSelectedAction(usersData.reverse()))
         // dispatch(fetchExperiences(usersData._id))
         setTimeout(() => {
           dispatch(usersLoaded())
