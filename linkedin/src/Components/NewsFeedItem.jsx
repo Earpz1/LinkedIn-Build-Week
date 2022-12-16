@@ -8,7 +8,6 @@ import { IoIosSend } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-
 const NewsFeedItem = ({ post }) => {
   const likes = Math.floor(Math.random() * 200)
 
@@ -27,11 +26,9 @@ const NewsFeedItem = ({ post }) => {
 
   return (
     <>
-      <div className="news-feed-post mt-3 d-flex justify-content-evenly">
-
-        <Row className="d-flex">
-          <Link to={"/profile"}>
-
+      <div className="news-feed-post mt-3">
+        <Row>
+          <Link to={'/profile'}>
             <img
               className="news-post-profile-image ml-2"
               src={post.user.image}
@@ -44,19 +41,22 @@ const NewsFeedItem = ({ post }) => {
                 <strong>
                   {post.user.name} {post.user.surname}
                 </strong>
-              </small>{" "}
+              </small>{' '}
               <BsDot className="mt-1" /> <small>3rd+</small>
             </div>
             <div className="d-flex">
-              <small>{post.user.title}</small> <BsDash className="mt-1" /> <small>{post.user.email}</small>
+              <small>{post.user.title}</small> <BsDash className="mt-1" />{' '}
+              <small>{post.user.email}</small>
             </div>
           </div>
-          <div className="mt-3 ml-2 d-flex flex-column">{post.text}</div>
+        </Row>
+        <Row>
+          <div className="mt-3 ml-3 mr-3 d-flex flex-column">{post.text}</div>
           <img className="mt-3 post-image" src={post.image} />
           <div className="d-flex mt-2 ml-2 justify-content-between w-100">
             <div>
-              <FcLike /> <AiFillLike />
-              <small>{Likes}</small>
+              <AiFillLike className="like-icon" />
+              {Likes}
             </div>
             <div>
               <a href="#" className="commentLink">
@@ -66,23 +66,23 @@ const NewsFeedItem = ({ post }) => {
           </div>
           <hr className="bottom-post-divider" />
           <div className="post-action-buttons d-flex justify-content-between w-100 mx-3">
-            <a href="#" onClick={handleLikes}>
+            <span className="footer-icons-new-post" onClick={handleLikes}>
               {liked ? <AiFillLike /> : <AiOutlineLike />} Like
-            </a>
-            <a href="#">
+            </span>
+            <span className="footer-icons-new-post">
               <FaRegCommentDots /> Comment
-            </a>
-            <a href="#">
+            </span>
+            <span className="footer-icons-new-post">
               <BiRepost /> Repost
-            </a>
-            <a href="#">
+            </span>
+            <span className="footer-icons-new-post">
               <IoIosSend /> Send
-            </a>
+            </span>
           </div>
         </Row>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NewsFeedItem;
+export default NewsFeedItem

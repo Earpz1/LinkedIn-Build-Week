@@ -82,7 +82,7 @@ const Home = () => {
         </Container>
       ) : (
         <div className="d-flex justify-content-center mt-5">
-          <Spinner animation="border" role="status">
+          <Spinner animation="grow" variant="secondary">
             <span className="sr-only">Loading...</span>
           </Spinner>
         </div>

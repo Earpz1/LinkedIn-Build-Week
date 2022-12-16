@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,200&display=swap');
 
 .App {
   text-align: center;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 #root {
   background-color: #f3f2ef;
@@ -656,7 +656,12 @@ span {
 }
 
 .footer-icons-new-post {
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+.footer-icons-new-post:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 footer #footerLogo {
   color: #0a66c2;
@@ -708,4 +713,13 @@ footer #footerLogo {
 
 .post-image {
   width: 500px;
+}
+
+.like-icon {
+  font-size: 1.3rem;
+  margin-right: 5px;
+}
+
+.likes {
+  font-size: 1.1rem;
 }
