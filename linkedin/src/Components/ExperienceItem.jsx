@@ -55,9 +55,7 @@ const ExperienceItem = ({ data }) => {
                     {format(new Date(data.endDate), 'MMM yyyy')}
                   </Badge>
                 </p>
-                <p>
-                  <Badge variant="dark">{data.description}</Badge>
-                </p>
+                <p>{data.description}</p>
               </div>
             </div>
           </>

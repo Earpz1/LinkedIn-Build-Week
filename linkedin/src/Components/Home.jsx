@@ -62,25 +62,23 @@ const Home = () => {
     setTimeout(() => {
       setDisplayPosts([...displayPosts, nextSlice()])
 
-      setSlice(slice + 3)
+      setSlice(slice + 6)
       if (slice >= postsList[0].length) setHasMore(false)
     }, 1000)
   }
 
   const nextSlice = () => {
     return postsList[0]
-      .slice(slice, slice + 3)
+      .slice(slice, slice + 6)
       .map((post) => <NewsFeedItem key={post._id} post={post} />)
   }
 
   const barloader = (isLoading) => {
     return (
-      <div className="d-flex justify-content-center">
-        <div className="loader ml-5">
-          loading={isLoading}
-          height={5}
-          width={'60vw'}
-        </div>
+      <div className="loader ml-5">
+        loading={isLoading}
+        height={5}
+        width={'60vw'}
       </div>
     )
   }
@@ -119,6 +117,7 @@ const Home = () => {
                 <InfiniteScroll
                   dataLength={displayPosts.length}
                   next={addSlice}
+                  scrollThreshold={1.0}
                   hasMore={hasMore}
                   loader={BarLoader(hasMore)}
                 >
