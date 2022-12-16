@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
+import Spinner from 'react-bootstrap/Spinner'
 
 import {
   fetchUsers,
@@ -46,7 +47,7 @@ const Home = () => {
 
   return (
     <>
-      {postsLoaded && (
+      {postsLoaded ? (
         <Container>
           <Row className="mt-4">
             <Col lg={3} className="pr-0">
@@ -79,6 +80,12 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
+      ) : (
+        <div className="d-flex justify-content-center mt-5">
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
       )}
     </>
   )
