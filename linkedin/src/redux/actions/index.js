@@ -262,7 +262,7 @@ export const fetchPostsList = () => {
         console.log('Fetch Successful')
         let postsList = await response.json()
         console.log(postsList)
-        dispatch(getPostsListAction(postsList))
+        dispatch(getPostsListAction(postsList.reverse()))
         setTimeout(() => {
           dispatch(setPostsLoaded())
         }, 3000)
