@@ -22,7 +22,7 @@ const ProfileRight = () => {
             </div>
           ))}
       </div>
-      <p>
+      <p style={{ marginTop: ".5em", fontWeight: "500" }}>
         View all recommandations <AiOutlineArrowRight />
       </p>
     </div>

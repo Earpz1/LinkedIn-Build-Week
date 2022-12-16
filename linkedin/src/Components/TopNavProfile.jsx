@@ -1,9 +1,11 @@
-import { Button, NavDropdown } from "react-bootstrap";
-import { HiHome, HiUserCircle } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Button, NavDropdown } from 'react-bootstrap'
+import { HiHome, HiUserCircle } from 'react-icons/hi'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const TopNavProfile = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const currentUserData = useSelector((state) => state.user.currentUser)
 
   return (
     <>
@@ -18,14 +20,18 @@ const TopNavProfile = () => {
                 <HiUserCircle size={48} />
               </div>
               <div>
-                <p className="m-0">username</p>
-                <p className="m-0">user position</p>
+                <p className="m-0">
+                  {currentUserData.name} {currentUserData.surname}
+                </p>
+                <p className="m-0">
+                  <small>{currentUserData.title}</small>
+                </p>
               </div>
             </div>
             <Button
               className="rounded-pill"
               onClick={() => {
-                navigate("/Profile");
+                navigate('/Profile')
               }}
             >
               View Profile
@@ -33,11 +39,8 @@ const TopNavProfile = () => {
           </div>
         </div>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
     </>
-  );
-};
-export default TopNavProfile;
+  )
+}
+export default TopNavProfile

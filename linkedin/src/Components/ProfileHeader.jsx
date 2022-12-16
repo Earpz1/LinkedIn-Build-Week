@@ -31,15 +31,23 @@ const ProfileHeader = () => {
               <a href="#">1 Connection</a>
             </div>
             <div>
-              <Button className="mr-3 rounded-pill" variant="primary">
+              <button
+                id="openBtn"
+                className="mr-3 rounded-pill bottomNavButtons"
+                variant="primary"
+              >
                 Open to
-              </Button>
-              <Button className="mr-3 rounded-pill" variant="outline-primary">
+              </button>
+              <button
+                id="addToProfileBtn"
+                className="mr-3 rounded-pill bottomNavButtons"
+                variant="outline-primary"
+              >
                 Add Profile Section
-              </Button>
-              <Button variant="outline-dark" className="rounded-pill">
+              </button>
+              <button id="moreBtn" className="rounded-pill bottomNavButtons">
                 More
-              </Button>
+              </button>
             </div>
           </div>
           <div>
